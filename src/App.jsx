@@ -21,6 +21,7 @@ function App() {
             </Content>
           }
         />
+
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/mylibrary" element={<MyLibraryPage />} />
         <Route path="/about" element={<AboutPage />} />

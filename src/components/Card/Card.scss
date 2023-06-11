@@ -1,9 +1,37 @@
-.game-card {
-  width: 200px;
-  height: 100%;
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/fonts" as *;
+@use "../../styles//partials/global" as *;
+@use "../../styles//partials/mixins" as *;
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  @include tablet {
+    justify-content: space-around;
+    display: inline-block;
+  }
+
+  &__card {
+    background-color: rgb(0, 0, 0);
+    width: 15.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    border-radius: 4px;
+  }
 
   &__image {
-    width: 200px;
-    height: 100%;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 18px;
+    color: white;
   }
 }
