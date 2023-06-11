@@ -1,7 +1,7 @@
 import "../MyLibraryPage/MyLibraryPage.scss";
 
-function MyLibraryPage() {
+function LibraryPage() {
   return <></>;
 }
 
-export default MyLibraryPage;
+export default LibraryPage;
