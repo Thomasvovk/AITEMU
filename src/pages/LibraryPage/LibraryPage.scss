@@ -9,15 +9,26 @@
   margin-top: 1rem;
   margin-left: 2rem;
   margin-right: 2rem;
+
+  &__filter {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
   &__select {
-    width: 110px;
+    width: 90%;
     height: 30px;
     margin-left: 0.5rem;
+    @include tablet {
+      width: 54%;
+    }
   }
   &__button {
     background-color: black;
-    width: 50px;
-    height: 30px;
+    width: 9.375rem;
+    height: 1.875rem;
     color: white;
     border-radius: 4px;
   }
