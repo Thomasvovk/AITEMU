@@ -1,16 +1,21 @@
 import "../Header/Header.scss";
 import logo from "../../assets/images/logo/logo-white.png";
-// import { Link } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div className="header">
       <ul className="header__navigation">
-        <li className="header__container">Library</li>
+        <Link className="header__link" to="/library">
+          <li className="header__container">Library</li>
+        </Link>
         <li className="header__container">Favourites</li>
         <li className="header__container">About Us</li>
       </ul>
-      <img className="header__logo" src={logo} />
+
+      <Link className="header__link" to="/">
+        <img className="header__logo" src={logo} />
+      </Link>
     </div>
   );
 }

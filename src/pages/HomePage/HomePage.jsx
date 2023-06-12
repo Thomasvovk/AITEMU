@@ -24,6 +24,16 @@ function HomePage() {
 
   return (
     <>
+      <div className="search">
+        <form className="search__form">
+          <input
+            type="search"
+            name="search"
+            className="search__input"
+            placeholder="Search..."
+          ></input>
+        </form>
+      </div>
       {allGames.map((item) => {
         return (
           <Card

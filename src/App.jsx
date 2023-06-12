@@ -16,13 +16,20 @@ function App() {
         <Route
           path="/"
           element={
-            <Content title="Top 10 of 2022">
+            <Content title="Top 10 of 2023">
               <HomePage />
             </Content>
           }
         />
 
-        <Route path="/library" element={<LibraryPage />} />
+        <Route
+          path="/library"
+          element={
+            <Content title="Library">
+              <LibraryPage />
+            </Content>
+          }
+        />
         <Route path="/mylibrary" element={<MyLibraryPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
