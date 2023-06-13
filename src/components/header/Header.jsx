@@ -1,5 +1,5 @@
 import "../Header/Header.scss";
-import logo from "../../assets/images/logo/logo.png";
+import logo from "../../assets/images/logo/logo-white.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -14,6 +14,17 @@ function Header() {
         </Link>
         <li className="header__container">About Us</li>
       </ul>
+
+      <div className="header__search">
+        <form className="header__search-form">
+          <input
+            type="search"
+            name="search"
+            className="header__search-input"
+            placeholder="Search..."
+          ></input>
+        </form>
+      </div>
 
       <Link className="header__link" to="/">
         <img className="header__logo" src={logo} />

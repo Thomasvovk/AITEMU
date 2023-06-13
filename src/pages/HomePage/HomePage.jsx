@@ -24,29 +24,20 @@ function HomePage() {
 
   return (
     <>
-      <div className="home__search">
-        <form className="home__search__form">
-          <input
-            type="search"
-            name="search"
-            className="home__search__input"
-            placeholder="Search..."
-          ></input>
-          <button className="home__search-button">Search</button>
-        </form>
-      </div>
-      <div className="home__description"></div>
-      <div className="home__games">
-        {allGames.map((item) => {
-          return (
-            <Card
-              name={item.name}
-              image={item.background_image}
-              id={item.id}
-              open={openGame}
-            />
-          );
-        })}
+      <div className="home">
+        <div className="home__description"></div>
+        <div className="home__games">
+          {allGames.map((item) => {
+            return (
+              <Card
+                name={item.name}
+                image={item.background_image}
+                id={item.id}
+                open={openGame}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );

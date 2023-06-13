@@ -4,16 +4,17 @@
 // $Silver-color: #afafaf;
 // $White-color: #ffffff;
 
-// // Secondary Colors
+// Background Colors
 
-// $BrainFlix-DarkBlack-color: #000000;
-// $BrainFlix-DarkBlue-color: #0065ad;
-// $Mercury-color: #e1e1e1;
-// $Alabaster-color: #fafafa;
+$Main-Background: rgb(28, 28, 28);
 
-// //Fonts
-// $font-regular: "Avenir Next Regular";
-// $font-bold: "Avenir Next Bold";
+//Fonts
+$font-regular: "Poppins Regular";
+$font-bold: "Poppins Bold";
+$font-extra-light: "Poppins Extra Light";
+$font-light: "Poppins Light";
+$font-thin: "Poppins Thin";
+$font-medimum: "Poppins Medimum";
 
 // MOBILE screen sizes are defined at 320px, but are applied to screen sizes 767px and below.
 $tablet-breakpoint: 768px; // screen sizes are defined at 768px, but are applied to screen sizes from 768px to 1279px.
