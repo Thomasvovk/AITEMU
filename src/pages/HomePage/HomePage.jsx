@@ -27,8 +27,8 @@ function HomePage() {
       <div className="home">
         <div className="home__description-container">
           <p className="home__description">
-            AITEMU. - comprehensive online platform designed to serve as a
-            database for gamers and gaming enthusiasts.
+            AITEMU. - comprehensive online platform designed to serve as a hub
+            for gamers and gaming enthusiasts.
           </p>
           <p className="home__description-detailed">
             aims to provide a user-friendly and feature-rich environment where
