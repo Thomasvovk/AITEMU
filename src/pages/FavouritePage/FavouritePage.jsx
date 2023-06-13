@@ -1,14 +1,14 @@
 import "../FavouritePage/FavouritePage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { apiAllGames } from "../utilities/API";
+import { apiAllGamesMetacritics } from "../utilities/API";
 import Card from "../../components/Card/Card";
 
 function FavouritePage() {
   const [allGames, setAllGames] = useState([]);
 
   useEffect(() => {
-    axios.get(apiAllGames).then((response) => {
+    axios.get(apiAllGamesMetacritics).then((response) => {
       setAllGames(response.data.results);
     });
   }, []);

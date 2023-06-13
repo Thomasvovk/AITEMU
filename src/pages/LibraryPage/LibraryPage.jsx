@@ -1,14 +1,14 @@
 import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
-import { apiAllGames } from "../utilities/API";
+import { apiAllGamesMetacritics } from "../utilities/API";
 import { useEffect, useState } from "react";
 
 function LibraryPage() {
   const [allGames, setAllGames] = useState([]);
 
   useEffect(() => {
-    axios.get(apiAllGames).then((response) => {
+    axios.get(apiAllGamesMetacritics).then((response) => {
       setAllGames(response.data.results);
     });
   }, []);

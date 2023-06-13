@@ -2,14 +2,14 @@ import "../HomePage/HomePage.scss";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { apiAllGames } from "../utilities/API";
+import { apiAllGamesMetacritics } from "../utilities/API";
 import Card from "../../components/Card/Card";
 
 function HomePage() {
   const [allGames, setAllGames] = useState([]);
   const arr = [];
   useEffect(() => {
-    axios.get(apiAllGames).then((response) => {
+    axios.get(apiAllGamesMetacritics).then((response) => {
       arr.push(response.data.results);
       setAllGames(response.data.results);
     });
