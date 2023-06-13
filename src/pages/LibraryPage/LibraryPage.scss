@@ -27,12 +27,13 @@
     }
   }
   &__button {
-    background-color: black;
+    background-color: rgb(41, 41, 41);
     width: 9.375rem;
     height: 1.875rem;
     color: white;
     border-radius: 4px;
     border: none;
+    margin-bottom: 0.5rem;
   }
 
   &__games {

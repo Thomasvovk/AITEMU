@@ -16,7 +16,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Content title="Top 10 of 2023">
+            <Content>
               <HomePage />
             </Content>
           }

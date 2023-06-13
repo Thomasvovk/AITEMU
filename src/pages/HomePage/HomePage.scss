@@ -18,6 +18,35 @@
       }
     }
   }
+  &__description-container {
+    @include tablet {
+      @include tablet-grid;
+      display: flex;
+      justify-content: start;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  &__description {
+    @include tablet {
+      width: 50%;
+      font-family: $font-medimum;
+      color: white;
+      font-size: 30px;
+      line-height: 2.75rem;
+      margin-right: 4rem;
+    }
+  }
+
+  &__description-detailed {
+    @include tablet {
+      font-family: $font-light;
+      color: white;
+      font-size: 15px;
+      line-height: 1.75rem;
+      width: 40%;
+    }
+  }
 
   &__games {
     width: 100%;
