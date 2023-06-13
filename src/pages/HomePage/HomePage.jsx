@@ -7,9 +7,10 @@ import Card from "../../components/Card/Card";
 
 function HomePage() {
   const [allGames, setAllGames] = useState([]);
-
+  const arr = [];
   useEffect(() => {
     axios.get(apiAllGames).then((response) => {
+      arr.push(response.data.results);
       setAllGames(response.data.results);
     });
   }, []);
