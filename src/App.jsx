@@ -13,31 +13,10 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Content>
-              <HomePage />
-            </Content>
-          }
-        />
+        <Route path="/" element={<HomePage />} />
 
-        <Route
-          path="/library"
-          element={
-            <Content title="Library">
-              <LibraryPage />
-            </Content>
-          }
-        />
-        <Route
-          path="/favourite"
-          element={
-            <Content title="Favourites">
-              <FavouritePage />
-            </Content>
-          }
-        />
+        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/favourite" element={<FavouritePage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />

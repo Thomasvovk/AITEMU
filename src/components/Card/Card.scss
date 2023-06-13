@@ -6,6 +6,9 @@
 .game-card {
   position: relative;
   margin-bottom: 1rem;
+  &:hover {
+    opacity: 0.5;
+  }
   &__image {
     width: 18.75rem;
     height: 10.625rem;

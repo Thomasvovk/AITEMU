@@ -28,9 +28,13 @@
     }
   }
   &__description {
+    @include mobile-grid;
+    font-family: $font-medimum;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
     @include tablet {
       width: 50%;
-      font-family: $font-medimum;
       color: white;
       font-size: 30px;
       line-height: 2.75rem;
@@ -39,6 +43,10 @@
   }
 
   &__description-detailed {
+    @include mobile-grid;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+    margin-bottom: 2rem;
     @include tablet {
       font-family: $font-light;
       color: white;
