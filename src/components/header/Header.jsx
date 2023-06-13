@@ -9,7 +9,9 @@ function Header() {
         <Link className="header__link" to="/library">
           <li className="header__container">Library</li>
         </Link>
-        <li className="header__container">Favourites</li>
+        <Link className="header__link" to="/favourite">
+          <li className="header__container">Favourites</li>
+        </Link>
         <li className="header__container">About Us</li>
       </ul>
 

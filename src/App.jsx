@@ -4,8 +4,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
-import MyLibraryPage from "./pages/MyLibraryPage/MyLibraryPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
+import FavouritePage from "./pages/FavouritePage/FavouritePage";
 import Content from "./components/Content/Content";
 
 function App() {
@@ -30,7 +30,14 @@ function App() {
             </Content>
           }
         />
-        <Route path="/mylibrary" element={<MyLibraryPage />} />
+        <Route
+          path="/favourite"
+          element={
+            <Content title="Favourites">
+              <FavouritePage />
+            </Content>
+          }
+        />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />

@@ -1,11 +1,10 @@
-import "../HomePage/HomePage.scss";
-import React from "react";
+import "../FavouritePage/FavouritePage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiAllGames } from "../utilities/API";
 import Card from "../../components/Card/Card";
 
-function HomePage() {
+function FavouritePage() {
   const [allGames, setAllGames] = useState([]);
 
   useEffect(() => {
@@ -14,29 +13,20 @@ function HomePage() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   console.log(allGames);
-  // }, [allGames]);
-
   function openGame(id) {
     console.log(id);
   }
-
   return (
     <>
-      <div className="home__search">
-        <form className="home__search__form">
-          <input
-            type="search"
-            name="search"
-            className="home__search__input"
-            placeholder="Search..."
-          ></input>
-          <button className="home__search-button">Search</button>
-        </form>
-      </div>
-      <div className="home__description"></div>
-      <div className="home__games">
+      <section className="favourites">
+        <div className="favourites__buttons">
+          <button className="favourites__button">Favourite Games</button>
+          <button className="favourites__button">Completed</button>
+          <button className="favourites__button">In Progress</button>
+          <button className="favourites__button">To Play</button>
+        </div>
+      </section>
+      <div className="favourites__games">
         {allGames.map((item) => {
           return (
             <Card
@@ -52,4 +42,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default FavouritePage;
