@@ -14,9 +14,9 @@ function HomePage() {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(allGames);
-  }, [allGames]);
+  // useEffect(() => {
+  //   console.log(allGames);
+  // }, [allGames]);
 
   function openGame(id) {
     console.log(id);
@@ -24,26 +24,29 @@ function HomePage() {
 
   return (
     <>
-      <div className="search">
-        <form className="search__form">
+      <div className="home__search">
+        <form className="home__search__form">
           <input
             type="search"
             name="search"
-            className="search__input"
+            className="home__search__input"
             placeholder="Search..."
           ></input>
         </form>
       </div>
-      {allGames.map((item) => {
-        return (
-          <Card
-            name={item.name}
-            image={item.background_image}
-            id={item.id}
-            open={openGame}
-          />
-        );
-      })}
+      <div className="home__description"></div>
+      <div className="home__games">
+        {allGames.map((item) => {
+          return (
+            <Card
+              name={item.name}
+              image={item.background_image}
+              id={item.id}
+              open={openGame}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }

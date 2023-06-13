@@ -9,6 +9,7 @@
   margin-top: 1rem;
   margin-left: 2rem;
   margin-right: 2rem;
+  margin-bottom: 2rem;
 
   &__filter {
     @include tablet {
@@ -31,5 +32,12 @@
     height: 1.875rem;
     color: white;
     border-radius: 4px;
+  }
+
+  &__games {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

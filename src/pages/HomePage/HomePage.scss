@@ -3,43 +3,52 @@
 @use "../../styles//partials/global" as *;
 @use "../../styles//partials/mixins" as *;
 
-.search {
-  margin-top: 1rem;
+.home {
+  &__search {
+    margin-top: 1rem;
 
-  &__form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+    &__form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
 
-    @include tablet {
-      margin-top: 2rem;
-      margin-bottom: 1.5rem;
+      @include tablet {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &__input {
+      // background-image: url("../../assets/);
+      background-repeat: no-repeat;
+      background-position: 94%;
+      border-radius: 5px;
+      border: 1px solid;
+      padding: 0.5rem 1rem;
+      height: 2rem;
+      width: 90%;
+
+      &:focus {
+        outline: none;
+        border: 1px solid black;
+      }
+
+      @include tablet {
+        height: 2.375rem;
+        width: 500px;
+        background-position: 90%;
+      }
+      @include desktop {
+        width: 700px;
+        background-position: 93%;
+      }
     }
   }
 
-  &__input {
-    // background-image: url("../../assets/);
-    background-repeat: no-repeat;
-    background-position: 94%;
-    border-radius: 20px;
-    border: 1px solid;
-    padding: 0.5rem 1rem;
-    height: 2rem;
-    width: 90%;
-
-    &:focus {
-      outline: none;
-      border: 1px solid black;
-    }
-
-    @include tablet {
-      height: 2.375rem;
-      width: 500px;
-      background-position: 90%;
-    }
-    @include desktop {
-      width: 700px;
-      background-position: 93%;
-    }
+  &__games {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

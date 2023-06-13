@@ -1,7 +1,22 @@
 import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
+import axios from "axios";
+import { apiAllGames } from "../utilities/API";
+import { useEffect, useState } from "react";
 
 function LibraryPage() {
+  const [allGames, setAllGames] = useState([]);
+
+  useEffect(() => {
+    axios.get(apiAllGames).then((response) => {
+      setAllGames(response.data.results);
+    });
+  }, []);
+
+  function openGame(id) {
+    console.log(id);
+  }
+
   return (
     <>
       <div className="library">
@@ -233,8 +248,18 @@ function LibraryPage() {
         </div>
         <button className="library__button">Show</button>
       </div>
-
-      <Card />
+      <div className="library__games">
+        {allGames.map((item) => {
+          return (
+            <Card
+              name={item.name}
+              image={item.background_image}
+              id={item.id}
+              open={openGame}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }

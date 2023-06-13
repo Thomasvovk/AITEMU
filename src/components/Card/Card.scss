@@ -4,32 +4,31 @@
 @use "../../styles//partials/mixins" as *;
 
 .game-card {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-
-  @include tablet {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 30%;
-    border-radius: 4px;
-  }
-
+  position: relative;
+  margin-bottom: 1rem;
   &__image {
-    width: 100%;
+    width: 18.75rem;
+    height: 10.625rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
     @include tablet {
-      border-radius: 4px;
     }
   }
 
   &__title {
-    font-size: 18px;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    font-size: 17px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 0.5rem;
     text-align: center;
-
-    @include tablet {
-    }
+    opacity: 0.7;
   }
 }
