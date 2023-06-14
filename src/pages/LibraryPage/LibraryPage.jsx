@@ -1,7 +1,7 @@
 import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
-import { apiAllGamesMetacritics } from "../utilities/API";
+import { apiAllGamesMetacritics } from "../Utilities/API";
 import { useEffect, useState } from "react";
 
 function LibraryPage() {

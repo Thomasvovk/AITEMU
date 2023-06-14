@@ -2,7 +2,7 @@ import "../GamePage/GamePage.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { apiGameID, apiGameScreenshots } from "../utilities/API";
+import { apiGameID, apiGameScreenshots } from "../Utilities/API";
 
 function GamePage() {
   const param = useParams();

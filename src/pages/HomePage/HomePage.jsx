@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { apiAllGamesMetacritics } from "../utilities/API";
+import { apiAllGamesMetacritics } from "../Utilities/API";
 import Card from "../../components/Card/Card";
 
 function HomePage() {

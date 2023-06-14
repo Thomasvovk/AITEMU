@@ -2,7 +2,7 @@ import "../NewReleasesPage/NewReleasesPage.scss";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import axios from "axios";
-import { apiRecentGamesReleases } from "../utilities/API";
+import { apiRecentGamesReleases } from "../Utilities/API";
 
 function NewReleasesPage() {
   // const [recentGames, setRecentGames] = useState ([]);
