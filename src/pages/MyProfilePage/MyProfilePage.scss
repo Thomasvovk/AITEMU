@@ -3,8 +3,11 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
 
-.favourites {
+.profile {
   margin-left: 2.4rem;
+  font-size: 2.0625rem;
+  line-height: 2.75rem;
+  font-family: "Poppins Bold";
   @include tablet_desktop_page-header;
   &__section {
     display: flex;

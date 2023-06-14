@@ -18,16 +18,16 @@ function MyProfilePage() {
   }
   return (
     <>
-      <h1 className="favourites">My Profile</h1>
-      <section className="favourites__section">
-        <div className="favourites__buttons">
-          <button className="favourites__button">Favourite Games</button>
-          <button className="favourites__button">Completed</button>
-          <button className="favourites__button">In Progress</button>
-          <button className="favourites__button">To Play</button>
+      <h1 className="profile">My Profile</h1>
+      <section className="profile">
+        <div className="profile__buttons">
+          <button className="profile__button">Favourite Games</button>
+          <button className="profile__button">Completed</button>
+          <button className="profile__button">In Progress</button>
+          <button className="profile__button">To Play</button>
         </div>
       </section>
-      <div className="favourites__games">
+      <div className="profile__games">
         {allGames.map((item) => {
           return (
             <Card

@@ -27,7 +27,7 @@ function Header() {
           ></input>
         </form>
       </div>
-      <Link to="/favourite">
+      <Link to="/my-profile">
         <img src={profile} className="header__profile" alt="profile icon" />
       </Link>
 

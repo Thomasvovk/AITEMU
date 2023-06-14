@@ -7,6 +7,7 @@ import AboutPage from "./pages/AboutPage/AboutPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
 import NewReleasesPage from "./pages/NewReleasesPage/NewReleasesPage";
+import GamePage from "./pages/GamePage/GamePage";
 // import Content from "./components/Content/Content";
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/new-releases" element={<NewReleasesPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/favourite" element={<MyProfilePage />} />
+        <Route path="/game/:id" element={<GamePage />} />
+        <Route path="/my-profile" element={<MyProfilePage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
