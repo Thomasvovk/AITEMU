@@ -1,8 +1,9 @@
 import "../HomePage/HomePage.scss";
 import arrowIcon from "../../assets/images/icons/right-arrow.png";
+import { Link } from "react-router-dom";
 import React from "react";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { apiAllGamesMetacritics } from "../utilities/API";
 import Card from "../../components/Card/Card";
 
@@ -40,36 +41,43 @@ function HomePage() {
         </div>
         <div className="home__divider"> </div>
         <div className="home__directions">
-          <div className="home__direction-container">
-            <div className="home__direction-buttom-container">
-              <h2 className="home__direction-title">Library</h2>
-              <img className="home__direction-icon" src={arrowIcon} />
+          <Link className="home__direction-link" to="/library">
+            <div className="home__direction-container">
+              <div className="home__direction-buttom-container">
+                <h2 className="home__direction-title">Library</h2>
+                <img className="home__direction-icon" src={arrowIcon} />
+              </div>
             </div>
-          </div>
-          <div className="home__direction-container">
-            <div className="home__direction-buttom-container">
-              <h2 className="home__direction-title">New Releases</h2>
-              <img className="home__direction-icon" src={arrowIcon} />
+          </Link>
+          <Link className="home__direction-link" to="/new-releases">
+            <div className="home__direction-container">
+              <div className="home__direction-buttom-container">
+                <h2 className="home__direction-title">New Releases</h2>
+                <img className="home__direction-icon" src={arrowIcon} />
+              </div>
             </div>
-          </div>
-          <div className="home__direction-container">
-            <div className="home__direction-buttom-container">
-              <h2 className="home__direction-title">About Us</h2>
-              <img className="home__direction-icon" src={arrowIcon} />
+          </Link>
+          <Link className="home__direction-link" to="/about">
+            <div className="home__direction-container">
+              <div className="home__direction-buttom-container">
+                <h2 className="home__direction-title">About Us</h2>
+                <img className="home__direction-icon" src={arrowIcon} />
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="home__divider-right"> </div>
         <h1 className="home__buttom-title">Top Metacritic</h1>
         <div className="home__games">
           {allGames.map((item) => {
             return (
-              <Card
-                name={item.name}
-                image={item.background_image}
-                id={item.id}
-                open={openGame}
-              />
+              <Link to={`/game/${item.id}`}>
+                <Card
+                  name={item.name}
+                  image={item.background_image}
+                  id={item.id}
+                />
+              </Link>
             );
           })}
         </div>

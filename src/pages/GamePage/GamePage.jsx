@@ -1,15 +1,23 @@
 import "../GamePage/GamePage.scss";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { apiGameID, apiGameScreenshots } from "../utilities/API";
 
 function GamePage() {
+  const param = useParams();
+  const id = param.id;
+
   const [selectedGame, setSelectedGame] = useState([]);
 
   useEffect(() => {
-    axios.get(apiGameID).then((response) => {
-      setSelectedGame(response.data);
-    });
+    axios
+      .get(
+        `https://api.rawg.io/api/games/${id}?&key=fd5e01bfaeee4bcc905db6d589957270`
+      )
+      .then((response) => {
+        setSelectedGame(response.data);
+      });
   }, []);
 
   return (
