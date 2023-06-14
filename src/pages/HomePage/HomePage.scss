@@ -62,4 +62,65 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  &__divider {
+    border-bottom: 0.5px solid rgb(255, 255, 255);
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+    margin-right: 35rem;
+  }
+
+  &__divider-right {
+    border-bottom: 0.5px solid rgb(255, 255, 255);
+    margin-bottom: 2rem;
+    margin-left: 35rem;
+    margin-right: 3rem;
+  }
+
+  &__directions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+
+  &__direction-container {
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    border: 0.5px solid white;
+    border-radius: 10px;
+    background-color: aliceblue;
+    width: 200px;
+    height: 270px;
+    color: $Main-Background;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__direction-title {
+    @include tablet_desktop_subheader;
+  }
+
+  &__direction-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  &__direction-buttom-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 0.5px solid black;
+  }
+
+  &__buttom-title {
+    margin-left: 2.4rem;
+    margin-bottom: 2rem;
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: "Poppins Bold";
+  }
 }

@@ -1,4 +1,5 @@
 import "../HomePage/HomePage.scss";
+import arrowIcon from "../../assets/images/icons/right-arrow.png";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -37,6 +38,29 @@ function HomePage() {
             organize their next game they want to play across all the platforms.
           </p>
         </div>
+        <div className="home__divider"> </div>
+        <div className="home__directions">
+          <div className="home__direction-container">
+            <div className="home__direction-buttom-container">
+              <h2 className="home__direction-title">Library</h2>
+              <img className="home__direction-icon" src={arrowIcon} />
+            </div>
+          </div>
+          <div className="home__direction-container">
+            <div className="home__direction-buttom-container">
+              <h2 className="home__direction-title">New Releases</h2>
+              <img className="home__direction-icon" src={arrowIcon} />
+            </div>
+          </div>
+          <div className="home__direction-container">
+            <div className="home__direction-buttom-container">
+              <h2 className="home__direction-title">About Us</h2>
+              <img className="home__direction-icon" src={arrowIcon} />
+            </div>
+          </div>
+        </div>
+        <div className="home__divider-right"> </div>
+        <h1 className="home__buttom-title">Top Metacritic</h1>
         <div className="home__games">
           {allGames.map((item) => {
             return (
