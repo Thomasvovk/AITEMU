@@ -5,7 +5,8 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
-import FavouritePage from "./pages/FavouritePage/FavouritePage";
+import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
+import NewReleasesPage from "./pages/NewReleasesPage/NewReleasesPage";
 // import Content from "./components/Content/Content";
 
 function App() {
@@ -14,10 +15,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-
         <Route path="/library" element={<LibraryPage />} />
-        <Route path="/favourite" element={<FavouritePage />} />
+        <Route path="/new-releases" element={<NewReleasesPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/favourite" element={<MyProfilePage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

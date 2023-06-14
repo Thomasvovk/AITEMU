@@ -4,6 +4,10 @@
 @use "../../styles/partials/variables" as *;
 
 .library {
+  margin-left: 2.4rem;
+  font-size: 2.0625rem;
+  line-height: 2.75rem;
+  font-family: "Poppins Bold";
   &__container {
     display: flex;
     justify-content: space-between;

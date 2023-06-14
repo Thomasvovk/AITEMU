@@ -1,10 +1,10 @@
-import "../FavouritePage/FavouritePage.scss";
+import "../MyProfilePage/MyProfilePage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiAllGamesMetacritics } from "../utilities/API";
 import Card from "../../components/Card/Card";
 
-function FavouritePage() {
+function MyProfilePage() {
   const [allGames, setAllGames] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function FavouritePage() {
   }
   return (
     <>
-      <h1 className="favourites">Favourites</h1>
+      <h1 className="favourites">My Profile</h1>
       <section className="favourites__section">
         <div className="favourites__buttons">
           <button className="favourites__button">Favourite Games</button>
@@ -43,4 +43,4 @@ function FavouritePage() {
   );
 }
 
-export default FavouritePage;
+export default MyProfilePage;
