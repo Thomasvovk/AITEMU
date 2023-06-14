@@ -18,7 +18,8 @@ function FavouritePage() {
   }
   return (
     <>
-      <section className="favourites">
+      <h1 className="favourites">Favourites</h1>
+      <section className="favourites__section">
         <div className="favourites__buttons">
           <button className="favourites__button">Favourite Games</button>
           <button className="favourites__button">Completed</button>

@@ -4,12 +4,14 @@
 @use "../../styles/partials/variables" as *;
 
 .library {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
 
   &__filter {
     @include tablet {

@@ -1,5 +1,6 @@
 import "../Header/Header.scss";
 import logo from "../../assets/images/logo/logo-white.png";
+import profile from "../../assets/images/icons/profile-icon-white.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -9,9 +10,7 @@ function Header() {
         <Link className="header__link" to="/library">
           <li className="header__container">Library</li>
         </Link>
-        <Link className="header__link" to="/favourite">
-          <li className="header__container">Favourites</li>
-        </Link>
+
         <li className="header__container">About Us</li>
       </ul>
 
@@ -25,6 +24,9 @@ function Header() {
           ></input>
         </form>
       </div>
+      <Link to="/favourite">
+        <img src={profile} className="header__profile" alt="profile icon" />
+      </Link>
 
       <Link className="header__link" to="/">
         <img className="header__logo" src={logo} />

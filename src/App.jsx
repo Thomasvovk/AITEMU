@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import FavouritePage from "./pages/FavouritePage/FavouritePage";
-import Content from "./components/Content/Content";
+// import Content from "./components/Content/Content";
 
 function App() {
   return (

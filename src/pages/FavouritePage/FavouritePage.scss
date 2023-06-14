@@ -4,10 +4,14 @@
 @use "../../styles/partials/variables" as *;
 
 .favourites {
-  display: flex;
-  justify-content: center;
-  @include tablet {
-    justify-content: space-around;
+  margin-left: 2.4rem;
+  @include tablet_desktop_page-header;
+  &__section {
+    display: flex;
+    justify-content: center;
+    @include tablet {
+      justify-content: space-around;
+    }
   }
 
   &__buttons {

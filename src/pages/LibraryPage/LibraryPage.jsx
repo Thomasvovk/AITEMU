@@ -19,7 +19,8 @@ function LibraryPage() {
 
   return (
     <>
-      <div className="library">
+      <h1 className="library">Library</h1>
+      <div className="library__container">
         <div className="library__filter">
           <select className="library__select" name="genres" id="genres">
             <option className="library__option" value="Genres">
