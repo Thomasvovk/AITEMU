@@ -60,13 +60,25 @@ function GamePage() {
           <p className="selected-game__short-release">
             {selectedGame.released}
           </p>
+          <p className="selected-game__short-meta">Metacritic</p>
           <p className="selected-game__short-metacritic">
             {selectedGame.metacritic}
           </p>
-          <img className="selected-game__icon" src={favouriteIcon} />
-          <img className="selected-game__icon" src={completedIcon} />
-          <img className="selected-game__icon" src={inprogressIcon} />
-          <img className="selected-game__icon" src={toplayIcon} />
+          <div className="selected-game__icons-container">
+            <img
+              className="selected-game__icon-favourite"
+              src={favouriteIcon}
+            />
+            <img
+              className="selected-game__icon-completed"
+              src={completedIcon}
+            />
+            <img
+              className="selected-game__icon-progress"
+              src={inprogressIcon}
+            />
+            <img className="selected-game__icon-toplay" src={toplayIcon} />
+          </div>
         </div>
         <div>
           <video>{selectedGameTrailer.data}</video>
