@@ -7,7 +7,6 @@ export const pageSize = "page_size=50";
 export const recentGamesReleases = "dates=30days";
 
 export const apiGameID = `${apiUrlGames}/:id?&key=${apiKey}`;
-export const apiGameScreenshots = `${apiUrlGames}/:id/screenshots?&key=${apiKey}`;
 export const apiAllGamesMetacritics = `${apiUrlGames}?${queryMetacritic}&${pageSize}&key=${apiKey}`;
 export const apiRecentGamesReleases = `${apiUrlGames}?${recentGamesReleases}&key=${apiKey}`;
 export const apiAllPlatforms = `${apiUrlPlatforms}?key=${apiKey}`;
