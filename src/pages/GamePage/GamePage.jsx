@@ -6,6 +6,7 @@ import favouriteIcon from "../../assets/images/icons/heart-black.png";
 import completedIcon from "../../assets/images/icons/completed-black2.png";
 import toplayIcon from "../../assets/images/icons/to-do-black.png";
 import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png";
+import parse from "html-react-parser";
 // import ReactPlayer from "react-player";
 
 function GamePage() {
@@ -19,7 +20,7 @@ function GamePage() {
   useEffect(() => {
     axios
       .get(
-        `https://api.rawg.io/api/games/${id}?&key=35a4c87e8d814732916ac9e38857a151`
+        `https://api.rawg.io/api/games/${id}?&key=3423dd2bedf34760a779ed7b418c69d0`
       )
       .then((response) => {
         setSelectedGame(response.data);
@@ -29,7 +30,7 @@ function GamePage() {
   useEffect(() => {
     axios
       .get(
-        `https://api.rawg.io/api/games/${id}/screenshots?&key=35a4c87e8d814732916ac9e38857a151`
+        `https://api.rawg.io/api/games/${id}/screenshots?&key=3423dd2bedf34760a779ed7b418c69d0`
       )
       .then((response) => {
         setselectedGameScreenshots(response.data.results);
@@ -76,7 +77,11 @@ function GamePage() {
         {/* <ReactPlayer url={selectedGameTrailer} controls={true} /> */}
 
         <h2 className="selected-game__title">Description</h2>
-        <p className="selected-game__description">{selectedGame.description}</p>
+        {selectedGame.description && (
+          <p className="selected-game__description">
+            {parse(selectedGame.description)}
+          </p>
+        )}
         <h2 className="selected-game__title">Screenshots</h2>
         <div className="selected-game__divider"></div>
         <div className="selected-game__screenshots-container">

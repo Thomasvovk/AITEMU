@@ -8,11 +8,14 @@ import Card from "../../components/Card/Card";
 
 function TopMetacritic() {
   const [allGames, setAllGames] = useState([]);
-  const arr = [];
   useEffect(() => {
     axios.get(apiAllGamesMetacritics).then((response) => {
-      arr.push(response.data.results);
-      setAllGames(response.data.results);
+      const list = response.data.results.map((item) => {
+        const [api, imagePath] = item.background_image.split("media/");
+        item.background_image = `${api}media/resize/640/-/${imagePath}`;
+        return item;
+      });
+      setAllGames(list);
     });
   }, []);
 
@@ -30,7 +33,7 @@ function TopMetacritic() {
       <div className="home__games">
         {allGames.map((item) => {
           return (
-            <Link to={`/game/${item.id}`}>
+            <Link to={`/game/${item.id}`} key={item.id}>
               <Card
                 name={item.name}
                 image={item.background_image}
