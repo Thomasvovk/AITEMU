@@ -1,6 +1,6 @@
 import "../PlatformsPage/PlatformsPage.scss";
 import { useEffect, useState } from "react";
-import { apiAllPlatforms } from "../Utilities/API";
+import { apiPlatformsList } from "../Utilities/API";
 import { Link } from "react-router-dom";
 import React from "react";
 import axios from "axios";
@@ -11,7 +11,7 @@ function Platforms() {
   const arr = [];
 
   useEffect(() => {
-    axios.get(apiAllPlatforms).then((response) => {
+    axios.get(apiPlatformsList).then((response) => {
       arr.push(response.data.results);
       setallPlatforms(response.data.results);
     });

@@ -1,11 +1,12 @@
 import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import {
-  apiAllPlatforms,
+  apiPlatformsList,
   apiGameList,
-  apiAllPublishers,
-  apiAllGenres,
+  apiPublishersList,
+  apiGenresList,
 } from "../Utilities/API";
 import { useEffect, useState } from "react";
 
@@ -23,7 +24,7 @@ function LibraryPage() {
 
   // Platforms API Request
   useEffect(() => {
-    axios.get(apiAllPlatforms).then((response) => {
+    axios.get(apiPlatformsList).then((response) => {
       setPlatforms(response.data.results);
     });
   }, []);
@@ -32,12 +33,18 @@ function LibraryPage() {
     const api = `${apiGameList}&platforms=${filter.platform}`;
     axios.get(api).then((response) => {
       setLibrary(response.data.results);
+      //   const list = response.data.results.map((item) => {
+      //     const [api, imagePath] = item.image_background.split("media/");
+      //     item.image_background = `${api}media/resize/640/-/${imagePath}`;
+      //     return item;
+      //   });
+      //   setLibrary(list);
     });
   }, [filter.platform]);
 
   // Publishers API Request
   useEffect(() => {
-    axios.get(apiAllPublishers).then((response) => {
+    axios.get(apiPublishersList).then((response) => {
       setPublishers(response.data.results);
     });
   }, []);
@@ -51,7 +58,7 @@ function LibraryPage() {
 
   // Genre API Request
   useEffect(() => {
-    axios.get(apiAllGenres).then((response) => {
+    axios.get(apiGenresList).then((response) => {
       setGenres(response.data.results);
     });
   }, []);
@@ -159,13 +166,15 @@ function LibraryPage() {
       <div className="library__games">
         {library.map((item) => {
           return (
-            <Card
-              key={item.id}
-              name={item.name}
-              image={item.background_image}
-              id={item.id}
-              open={openGame}
-            />
+            <Link to={`/game/${item.id}`}>
+              <Card
+                key={item.id}
+                name={item.name}
+                image={item.background_image}
+                id={item.id}
+                open={openGame}
+              />
+            </Link>
           );
         })}
       </div>
