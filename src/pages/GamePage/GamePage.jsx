@@ -7,6 +7,7 @@ import completedIcon from "../../assets/images/icons/completed-black2.png";
 import toplayIcon from "../../assets/images/icons/to-do-black.png";
 import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png";
 import parse from "html-react-parser";
+import { apiUrlGames, apiKey } from "../Utilities/API";
 // import ReactPlayer from "react-player";
 
 function GamePage() {
@@ -18,22 +19,21 @@ function GamePage() {
   //   const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.rawg.io/api/games/${id}?&key=3423dd2bedf34760a779ed7b418c69d0`
-      )
-      .then((response) => {
-        setSelectedGame(response.data);
-      });
+    axios.get(`${apiUrlGames}/${id}?&key=${apiKey}`).then((response) => {
+      setSelectedGame(response.data);
+    });
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `https://api.rawg.io/api/games/${id}/screenshots?&key=3423dd2bedf34760a779ed7b418c69d0`
-      )
+      .get(`${apiUrlGames}/${id}/screenshots?&key=${apiKey}`)
       .then((response) => {
-        setselectedGameScreenshots(response.data.results);
+        const list = response.data.results.map((item) => {
+          const [api, imagePath] = item.image.split("media/");
+          item.image = `${api}media/resize/640/-/${imagePath}`;
+          return item;
+        });
+        setselectedGameScreenshots(list);
       });
   }, []);
 

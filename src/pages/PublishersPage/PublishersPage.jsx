@@ -11,7 +11,12 @@ function Publishers() {
 
   useEffect(() => {
     axios.get(apiPublishersList).then((response) => {
-      setAllPublishers(response.data.results);
+      const list = response.data.results.map((item) => {
+        const [api, imagePath] = item.image_background.split("media/");
+        item.image_background = `${api}media/resize/640/-/${imagePath}`;
+        return item;
+      });
+      setAllPublishers(list);
     });
   }, []);
 
@@ -21,7 +26,7 @@ function Publishers() {
       <div className="home__games">
         {allPublishers.map((item) => {
           return (
-            <Link to={`/publishers`}>
+            <Link to={`/game/${item.id}`}>
               <Card
                 name={item.name}
                 image={item.image_background}

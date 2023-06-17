@@ -19,10 +19,6 @@ function TopMetacritic() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   console.log(allGames);
-  // }, [allGames]);
-
   function openGame(id) {
     console.log(id);
   }

@@ -7,19 +7,22 @@ import Card from "../../components/Card/Card";
 import axios from "axios";
 
 function NewReleasesPage() {
-  const [newReleases, setnewReleases] = useState([]);
-  const arr = [];
+  const [newReleases, setNewReleases] = useState([]);
 
   useEffect(() => {
     axios.get(apiRecentGamesReleases).then((response) => {
-      arr.push(response.data.results);
-      setnewReleases(response.data.results);
+      const list = response.data.results.map((item) => {
+        const [api, imagePath] = item.background_image.split("media/");
+        item.background_image = `${api}media/resize/640/-/${imagePath}`;
+        return item;
+      });
+      setNewReleases(list);
     });
   }, []);
 
-  // function openGame(id) {
-  //   console.log(id);
-  // }
+  function openGame(id) {
+    console.log(id);
+  }
 
   return (
     <>

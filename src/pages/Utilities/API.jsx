@@ -6,6 +6,8 @@ export const apiGenres = "https://api.rawg.io/api/genres";
 export const queryMetacritic = "metacritic=90,100";
 export const pageSize = "page_size=200";
 export const recentGamesReleases = "dates=2023-05-01,2023-05-31";
+// export const screenshots = "screenshots";
+// export const id = ":id";
 
 export const apiGameID = `${apiUrlGames}/:id?&key=${apiKey}`;
 export const apiGameList = `${apiUrlGames}?${pageSize}&key=${apiKey}`;
@@ -14,4 +16,5 @@ export const apiRecentGamesReleases = `${apiUrlGames}?${pageSize}&${recentGamesR
 export const apiPlatformsList = `${apiUrlPlatforms}?${pageSize}&key=${apiKey}`;
 export const apiPublishersList = `${apiUrlPublisher}?${pageSize}&key=${apiKey}`;
 export const apiGenresList = `${apiGenres}?${pageSize}&key=${apiKey}`;
-// export const apiPlatforms = `${apiUrlPlatforms}?${pageSize}&key=${apiKey}`;
+
+// export const gameScreenshots = `${apiUrlGames}${id}${screenshots}&key=${apiKey}`;
