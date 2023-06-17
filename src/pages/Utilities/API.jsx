@@ -5,6 +5,7 @@ export const apiUrlPublisher = "https://api.rawg.io/api/publishers";
 export const queryMetacritic = "metacritic=90-100";
 export const pageSize = "page_size=50";
 export const recentGamesReleases = "dates=2023-05-01,2023-05-31";
+export const apiGameList = `${apiUrlGames}?key=${apiKey}`;
 
 export const apiGameID = `${apiUrlGames}/:id?&key=${apiKey}`;
 export const apiAllGamesMetacritics = `${apiUrlGames}?${queryMetacritic}&${pageSize}&key=${apiKey}`;

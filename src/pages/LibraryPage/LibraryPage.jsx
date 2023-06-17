@@ -1,7 +1,7 @@
 import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
-import { apiAllPlatforms } from "../Utilities/API";
+import { apiAllPlatforms, apiGameList } from "../Utilities/API";
 import { useEffect, useState } from "react";
 
 function LibraryPage() {
@@ -11,6 +11,7 @@ function LibraryPage() {
     publisher: null,
     genre: null,
   });
+  const [library, setLibrary] = useState([]);
 
   useEffect(() => {
     axios.get(apiAllPlatforms).then((response) => {
@@ -19,8 +20,11 @@ function LibraryPage() {
   }, []);
 
   useEffect(() => {
-    console.log(filter);
-  }, [filter]);
+    const api = `${apiGameList}&platforms=${filter.platform}`;
+    axios.get(api).then((response) => {
+      setLibrary(response.data.results);
+    });
+  }, [filter.platform]);
 
   function openGame(id) {
     console.log(id);
@@ -28,8 +32,7 @@ function LibraryPage() {
 
   function onPlatformSelect(item) {
     setFilter((state) => {
-      state.platform = item.target.value;
-      return state;
+      return { ...state, platform: item.target.value };
     });
   }
 
@@ -197,10 +200,11 @@ function LibraryPage() {
         </div>
         <button className="library__button">Show</button>
       </div>
-      {/* <div className="library__games">
-        {allGames.map((item) => {
+      <div className="library__games">
+        {library.map((item) => {
           return (
             <Card
+              key={item.id}
               name={item.name}
               image={item.background_image}
               id={item.id}
@@ -208,7 +212,7 @@ function LibraryPage() {
             />
           );
         })}
-      </div> */}
+      </div>
     </>
   );
 }
