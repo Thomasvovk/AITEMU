@@ -1,20 +1,36 @@
 import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
-import { apiAllGamesMetacritics } from "../Utilities/API";
+import { apiAllPlatforms } from "../Utilities/API";
 import { useEffect, useState } from "react";
 
 function LibraryPage() {
-  const [allGames, setAllGames] = useState([]);
+  const [platforms, setPlatforms] = useState([]);
+  const [filter, setFilter] = useState({
+    platform: null,
+    publisher: null,
+    genre: null,
+  });
 
   useEffect(() => {
-    axios.get(apiAllGamesMetacritics).then((response) => {
-      setAllGames(response.data.results);
+    axios.get(apiAllPlatforms).then((response) => {
+      setPlatforms(response.data.results);
     });
   }, []);
 
+  useEffect(() => {
+    console.log(filter);
+  }, [filter]);
+
   function openGame(id) {
     console.log(id);
+  }
+
+  function onPlatformSelect(item) {
+    setFilter((state) => {
+      state.platform = item.target.value;
+      return state;
+    });
   }
 
   return (
@@ -85,94 +101,26 @@ function LibraryPage() {
             </option>
           </select>
 
-          <select className="library__select" name="publishers" id="publishers">
-            <option className="library__option" value="publishers">
-              Publishers
-            </option>
-            <option className="library__option" value="Electronic Arts">
-              Electronic Arts
-            </option>
-            <option className="library__option" value="Ubisoft Entertainment">
-              Ubisoft Entertainment
-            </option>
-            <option className="library__option" value="Microsoft Studios">
-              Microsoft Studios
-            </option>
-            <option className="library__option" value="SEGA">
-              SEGA
-            </option>
-            <option className="library__option" value="2K Games">
-              2K Games
-            </option>
-            <option className="library__option" value="Bethesda Softworks">
-              Bethesda Softworks
-            </option>
-            <option className="library__option" value="Feral Interactive">
-              Feral Interactive
-            </option>
-            <option className="library__option" value="Valve">
-              Valve
-            </option>
-            <option className="library__option" value="Capcom">
-              Capcom
-            </option>
-            <option
-              className="library__option"
-              value="Sony Computer Entertainment"
-            >
-              Sony Computer Entertainment
-            </option>
-            <option
-              className="library__option"
-              value="Warner Bros. Interactive"
-            >
-              Warner Bros. Interactive
-            </option>
-            <option className="library__option" value="THQ Nordic">
-              THQ Nordic
-            </option>
-            <option className="library__option" value="Devolver Digital">
-              Devolver Digital
-            </option>
-            <option className="library__option" value="Activision Blizzard">
-              Activision Blizzard
-            </option>
-            <option
-              className="library__option"
-              value="Bandai Namco Entertainment"
-            >
-              Bandai Namco Entertainment
-            </option>
-            <option className="library__option" value="Nintendo">
-              Nintendo
-            </option>
-            <option className="library__option" value="Rockstar Games">
-              Rockstar Games
-            </option>
-            <option className="library__option" value="505 Games">
-              505 Games
-            </option>
-            <option className="library__option" value="Disney Interactive">
-              Disney Interactive
-            </option>
-            <option className="library__option" value="Konami">
-              Konami
-            </option>
-            <option className="library__option" value="Take Two Interactive">
-              Take Two Interactive
-            </option>
-            <option className="library__option" value="Blizzard Entertainment">
-              Blizzard Entertainment
-            </option>
-            <option className="library__option" value="Majesco Entertainment">
-              Majesco Entertainment
-            </option>
-            <option className="library__option" value="Infogrames">
-              Infogrames
-            </option>
+          <select
+            className="library__select"
+            name="platforms"
+            id="platforms"
+            onChange={onPlatformSelect}
+          >
+            {platforms.map((item) => {
+              return (
+                <option
+                  key={item.id}
+                  className="library__option"
+                  value={item.id}
+                >
+                  {item.name}
+                </option>
+              );
+            })}
           </select>
 
-          <select className="library__select" name="platforms" id="platforms">
+          <select className="library__select" name="publishers" id="publishers">
             <option className="library__option" value="platforms">
               Platfroms
             </option>
@@ -249,7 +197,7 @@ function LibraryPage() {
         </div>
         <button className="library__button">Show</button>
       </div>
-      <div className="library__games">
+      {/* <div className="library__games">
         {allGames.map((item) => {
           return (
             <Card
@@ -260,7 +208,7 @@ function LibraryPage() {
             />
           );
         })}
-      </div>
+      </div> */}
     </>
   );
 }
