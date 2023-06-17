@@ -8,6 +8,9 @@ import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
 import NewReleasesPage from "./pages/NewReleasesPage/NewReleasesPage";
 import GamePage from "./pages/GamePage/GamePage";
+import TopMetacritic from "./pages/TopMetacriticPage/TopMetacriticPage";
+import Platforms from "./pages/PlatformsPage/PlatformsPage";
+import Publishers from "./pages/PublishersPage/PublishersPage";
 // import Content from "./components/Content/Content";
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/game/:id" element={<GamePage />} />
         <Route path="/my-profile" element={<MyProfilePage />} />
+        <Route path="/top-metacritic" element={<TopMetacritic />} />
+        <Route path="/platforms" element={<Platforms />} />
+        <Route path="/publishers" element={<Publishers />} />
       </Routes>
       <Footer />
     </BrowserRouter>

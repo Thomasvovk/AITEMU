@@ -2,28 +2,28 @@ import "../HomePage/HomePage.scss";
 import arrowIcon from "../../assets/images/icons/right-arrow.png";
 import { Link } from "react-router-dom";
 import React from "react";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { apiAllGamesMetacritics } from "../Utilities/API";
-import Card from "../../components/Card/Card";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import { apiAllGamesMetacritics } from "../Utilities/API";
+// import Card from "../../components/Card/Card";
 
 function HomePage() {
-  const [allGames, setAllGames] = useState([]);
-  const arr = [];
-  useEffect(() => {
-    axios.get(apiAllGamesMetacritics).then((response) => {
-      arr.push(response.data.results);
-      setAllGames(response.data.results);
-    });
-  }, []);
-
+  // const [allGames, setAllGames] = useState([]);
+  // const arr = [];
   // useEffect(() => {
-  //   console.log(allGames);
-  // }, [allGames]);
+  //   axios.get(apiAllGamesMetacritics).then((response) => {
+  //     arr.push(response.data.results);
+  //     setAllGames(response.data.results);
+  //   });
+  // }, []);
 
-  function openGame(id) {
-    console.log(id);
-  }
+  // // useEffect(() => {
+  // //   console.log(allGames);
+  // // }, [allGames]);
+
+  // function openGame(id) {
+  //   console.log(id);
+  // }
 
   return (
     <>
@@ -41,33 +41,33 @@ function HomePage() {
         </div>
         <div className="home__divider"> </div>
         <div className="home__directions">
-          <Link className="home__direction-link" to="/library">
+          <Link className="home__direction-link" to="/top-metacritic">
             <div className="home__direction-container">
               <div className="home__direction-buttom-container">
-                <h2 className="home__direction-title">Library</h2>
+                <h2 className="home__direction-title">Top Metacritic</h2>
                 <img className="home__direction-icon" src={arrowIcon} />
               </div>
             </div>
           </Link>
-          <Link className="home__direction-link" to="/new-releases">
+          <Link className="home__direction-link" to="/platforms">
             <div className="home__direction-container">
               <div className="home__direction-buttom-container">
-                <h2 className="home__direction-title">New Releases</h2>
+                <h2 className="home__direction-title">Platforms</h2>
                 <img className="home__direction-icon" src={arrowIcon} />
               </div>
             </div>
           </Link>
-          <Link className="home__direction-link" to="/about">
+          <Link className="home__direction-link" to="/publishers">
             <div className="home__direction-container">
               <div className="home__direction-buttom-container">
-                <h2 className="home__direction-title">About Us</h2>
+                <h2 className="home__direction-title">Publishers</h2>
                 <img className="home__direction-icon" src={arrowIcon} />
               </div>
             </div>
           </Link>
         </div>
         <div className="home__divider-right"> </div>
-        <h1 className="home__buttom-title">Top Metacritic</h1>
+        {/* <h1 className="home__buttom-title">Top Metacritic</h1>
         <div className="home__games">
           {allGames.map((item) => {
             return (
@@ -80,7 +80,7 @@ function HomePage() {
               </Link>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );

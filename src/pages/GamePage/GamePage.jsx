@@ -6,6 +6,7 @@ import favouriteIcon from "../../assets/images/icons/heart-black.png";
 import completedIcon from "../../assets/images/icons/completed-black2.png";
 import toplayIcon from "../../assets/images/icons/to-do-black.png";
 import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png";
+// import ReactPlayer from "react-player";
 
 function GamePage() {
   const param = useParams();
@@ -13,39 +14,44 @@ function GamePage() {
 
   const [selectedGame, setSelectedGame] = useState({});
   const [selectedGameScreenshots, setselectedGameScreenshots] = useState([]);
-  const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
+  //   const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
 
   useEffect(() => {
     axios
       .get(
-        `https://api.rawg.io/api/games/${id}?&key=fd5e01bfaeee4bcc905db6d589957270`
+        `https://api.rawg.io/api/games/${id}?&key=35a4c87e8d814732916ac9e38857a151`
       )
       .then((response) => {
         setSelectedGame(response.data);
       });
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     axios
       .get(
-        `https://api.rawg.io/api/games/${id}/screenshots?&key=fd5e01bfaeee4bcc905db6d589957270`
+        `https://api.rawg.io/api/games/${id}/screenshots?&key=35a4c87e8d814732916ac9e38857a151`
       )
       .then((response) => {
         setselectedGameScreenshots(response.data.results);
-        console.log(response.data.results);
       });
-  }, [id]);
+  }, []);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.rawg.io/api/games/${id}/movies?&key=fd5e01bfaeee4bcc905db6d589957270`
-      )
-      .then((response) => {
-        setselectedGameTrailer(response.data.results);
-        console.log(response.data.results);
-      });
-  }, [id]);
+  //   useEffect(() => {
+  //     axios
+  //       .get(
+  //         `https://api.rawg.io/api/games/${id}/movies?&key=35a4c87e8d814732916ac9e38857a151`
+  //       )
+  //       .then((response) => {
+  //         setselectedGameTrailer(response.data.results[1].data["480"]);
+  //         // console.log(response.data.results[0].data);
+  //       });
+  //   }, []);
+
+  //   console.log(selectedGameTrailer);
+
+  //   if (!setselectedGameTrailer.length) {
+  //     return <p>Loading...</p>;
+  //   }
 
   return (
     <>
@@ -80,9 +86,9 @@ function GamePage() {
             <img className="selected-game__icon-toplay" src={toplayIcon} />
           </div>
         </div>
-        <div>
-          <video>{selectedGameTrailer.data}</video>
-        </div>
+
+        {/* <ReactPlayer url={selectedGameTrailer} controls={true} /> */}
+
         <h2 className="selected-game__title">Description</h2>
         <p className="selected-game__description">{selectedGame.description}</p>
         <h2 className="selected-game__title">Screenshots</h2>
