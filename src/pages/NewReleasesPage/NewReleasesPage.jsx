@@ -1,6 +1,7 @@
 import "../NewReleasesPage/NewReleasesPage.scss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import React from "react";
 import { apiRecentGamesReleases } from "../Utilities/API";
 import Card from "../../components/Card/Card";
 import axios from "axios";
@@ -16,7 +17,9 @@ function NewReleasesPage() {
     });
   }, []);
 
-  console.log(newReleases);
+  // function openGame(id) {
+  //   console.log(id);
+  // }
 
   return (
     <>
@@ -24,11 +27,11 @@ function NewReleasesPage() {
       <div className="home__games">
         {newReleases.map((item) => {
           return (
-            <Link to={`/new-releases`}>
+            <Link to={`/game/${item.id}`}>
               <Card
                 name={item.name}
                 image={item.background_image}
-                // id={item.id}
+                id={item.id}
               />
             </Link>
           );

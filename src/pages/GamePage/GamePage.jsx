@@ -36,23 +36,6 @@ function GamePage() {
       });
   }, []);
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         `https://api.rawg.io/api/games/${id}/movies?&key=35a4c87e8d814732916ac9e38857a151`
-  //       )
-  //       .then((response) => {
-  //         setselectedGameTrailer(response.data.results[1].data["480"]);
-  //         // console.log(response.data.results[0].data);
-  //       });
-  //   }, []);
-
-  //   console.log(selectedGameTrailer);
-
-  //   if (!setselectedGameTrailer.length) {
-  //     return <p>Loading...</p>;
-  //   }
-
   return (
     <>
       <h1 className="selected-game">{selectedGame.name}</h1>
@@ -61,6 +44,7 @@ function GamePage() {
           <img
             className="selected-game__background-image"
             src={selectedGame.background_image}
+            alt="background game image"
           />
           <p className="selected-game__short-website">Release Date</p>
           <p className="selected-game__short-release">
@@ -74,6 +58,7 @@ function GamePage() {
             <img
               className="selected-game__icon-favourite"
               src={favouriteIcon}
+              alt="background game image"
             />
             <img
               className="selected-game__icon-completed"
@@ -82,6 +67,7 @@ function GamePage() {
             <img
               className="selected-game__icon-progress"
               src={inprogressIcon}
+              alt="background game image"
             />
             <img className="selected-game__icon-toplay" src={toplayIcon} />
           </div>
@@ -99,6 +85,7 @@ function GamePage() {
               <img
                 className="selected-game__screenshot"
                 src={screenshot.image}
+                alt="screenshot game image"
               />
             );
           })}
