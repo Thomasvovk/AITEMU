@@ -9,6 +9,10 @@ import Card from "../../components/Card/Card";
 function TopMetacritic() {
   const [allGames, setAllGames] = useState([]);
   useEffect(() => {
+    console.log("render");
+  }, []);
+
+  useEffect(() => {
     axios.get(apiAllGamesMetacritics).then((response) => {
       const list = response.data.results.map((item) => {
         const [api, imagePath] = item.background_image.split("media/");
@@ -16,6 +20,7 @@ function TopMetacritic() {
         return item;
       });
       setAllGames(list);
+      console.log(list);
     });
   }, []);
 

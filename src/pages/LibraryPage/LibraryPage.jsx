@@ -1,7 +1,7 @@
-import Card from "../../components/Card/Card";
 import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Card from "../../components/Card/Card";
 import {
   apiPlatformsList,
   apiGameList,
@@ -17,77 +17,63 @@ function LibraryPage() {
   const [genres, setGenres] = useState([]);
   const [library, setLibrary] = useState([]);
   const [filter, setFilter] = useState({
-    platform: null,
-    publisher: null,
-    genre: null,
+    platforms: null,
+    publishers: null,
+    genres: null,
   });
 
   // Platforms API Request
   useEffect(() => {
-    axios.get(apiPlatformsList).then((response) => {
-      setPlatforms(response.data.results);
+    Promise.all([
+      axios.get(apiPlatformsList),
+      axios.get(apiPublishersList),
+      axios.get(apiGenresList),
+    ]).then(([platforms, publishers, genres]) => {
+      setPlatforms(platforms.data.results);
+      setPublishers(publishers.data.results);
+      setGenres(genres.data.results);
     });
   }, []);
 
   useEffect(() => {
-    const api = `${apiGameList}&platforms=${filter.platform}`;
+    let api = apiGameList;
+
+    Object.keys(filter).forEach((item) => {
+      if (filter[item]) {
+        api += `&${item}=${filter[item]}`;
+      }
+    });
+
     axios.get(api).then((response) => {
-      setLibrary(response.data.results);
       const list = response.data.results.map((item) => {
-        const [api, imagePath] = item.image_background.split("media/");
-        item.image_background = `${api}media/resize/640/-/${imagePath}`;
+        if (item.image_background) {
+          const [api, imagePath] = item.image_background.split("media/");
+          item.image_background = `${api}media/resize/640/-/${imagePath}`;
+        }
         return item;
       });
       setLibrary(list);
     });
-  }, [filter.platform]);
-
-  // Publishers API Request
-  useEffect(() => {
-    axios.get(apiPublishersList).then((response) => {
-      setPublishers(response.data.results);
-    });
-  }, []);
-
-  useEffect(() => {
-    const api = `${apiGameList}&publishers=${filter.publisher}`;
-    axios.get(api).then((response) => {
-      setLibrary(response.data.results);
-    });
-  }, [filter.publisher]);
-
-  // Genre API Request
-  useEffect(() => {
-    axios.get(apiGenresList).then((response) => {
-      setGenres(response.data.results);
-    });
-  }, []);
-
-  useEffect(() => {
-    const api = `${apiGameList}&genres=${filter.genre}`;
-    axios.get(api).then((response) => {
-      setLibrary(response.data.results);
-    });
-  }, [filter.genre]);
+  }, [filter.platforms, filter.publishers, filter.genres]);
 
   // Platform Function Select
   function onPlatformSelect(item) {
     setFilter((state) => {
-      return { ...state, platform: item.target.value };
+      return { ...state, platforms: item.target.value };
     });
   }
 
   // Publishers Function Select
   function onPublisherSelect(item) {
     setFilter((state) => {
-      return { ...state, publisher: item.target.value };
+      return { ...state, publishers: item.target.value };
     });
   }
 
   // Genre Function Select
   function onGenreSelect(item) {
     setFilter((state) => {
-      return { ...state, genre: item.target.value };
+      return { ...state, genres: item.target.value };
     });
   }
 
@@ -106,6 +92,9 @@ function LibraryPage() {
             id="genres"
             onChange={onGenreSelect}
           >
+            <option value="" selected>
+              Select Genres
+            </option>
             {genres.map((item) => {
               return (
                 <option
@@ -126,6 +115,9 @@ function LibraryPage() {
             id="platforms"
             onChange={onPlatformSelect}
           >
+            <option value="" selected>
+              Select Platforms
+            </option>
             {platforms.map((item) => {
               return (
                 <option
@@ -146,6 +138,9 @@ function LibraryPage() {
             id="publishers"
             onChange={onPublisherSelect}
           >
+            <option value="" selected>
+              Select Publishers
+            </option>
             {publishers.map((item) => {
               return (
                 <option

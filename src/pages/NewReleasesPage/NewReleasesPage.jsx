@@ -1,10 +1,10 @@
-import "../NewReleasesPage/NewReleasesPage.scss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from "react";
 import { apiRecentGamesReleases } from "../Utilities/API";
 import Card from "../../components/Card/Card";
 import axios from "axios";
+import "../NewReleasesPage/NewReleasesPage.scss";
 
 function NewReleasesPage() {
   const [newReleases, setNewReleases] = useState([]);
@@ -12,8 +12,10 @@ function NewReleasesPage() {
   useEffect(() => {
     axios.get(apiRecentGamesReleases).then((response) => {
       const list = response.data.results.map((item) => {
-        const [api, imagePath] = item.background_image.split("media/");
-        item.background_image = `${api}media/resize/640/-/${imagePath}`;
+        if (item.background_image) {
+          const [api, imagePath] = item.background_image.split("media/");
+          item.background_image = `${api}media/resize/640/-/${imagePath}`;
+        }
         return item;
       });
       setNewReleases(list);

@@ -8,7 +8,7 @@ import toplayIcon from "../../assets/images/icons/to-do-black.png";
 import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png";
 import parse from "html-react-parser";
 import { apiUrlGames, apiKey } from "../Utilities/API";
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 
 function GamePage() {
   const param = useParams();
@@ -16,7 +16,7 @@ function GamePage() {
 
   const [selectedGame, setSelectedGame] = useState({});
   const [selectedGameScreenshots, setselectedGameScreenshots] = useState([]);
-  //   const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
+  const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
 
   useEffect(() => {
     axios.get(`${apiUrlGames}/${id}?&key=${apiKey}`).then((response) => {
@@ -77,7 +77,7 @@ function GamePage() {
           </div>
         </div>
 
-        {/* <ReactPlayer url={selectedGameTrailer} controls={true} /> */}
+        <ReactPlayer url={selectedGameTrailer} controls={true} />
 
         <h2 className="selected-game__title">Description</h2>
         {selectedGame.description && (
