@@ -4,8 +4,41 @@
 @use "../../styles/partials/variables" as *;
 
 .new-release {
-  margin-left: 2.4rem;
-  font-size: 2.0625rem;
-  line-height: 2.75rem;
-  font-family: "Poppins Bold";
+  &__buttom-title {
+    margin-left: 2.4rem;
+    margin-bottom: 2rem;
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: "Poppins Bold";
+  }
+
+  &__games {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__character-right {
+    background-image: url(../../assets/images/vectors/undraw_counting_stars_re_smvv.svg);
+    background-size: cover;
+    background-position: top;
+    width: 500px;
+    height: 500px;
+  }
+
+  &__character-subheader {
+    width: 50%;
+    font-family: $font-extra-light;
+    font-size: 15px;
+    margin-right: 4rem;
+    line-height: 1.75rem;
+  }
+
+  &__character-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
 }

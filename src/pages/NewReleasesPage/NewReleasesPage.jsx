@@ -26,8 +26,21 @@ function NewReleasesPage() {
 
   return (
     <>
-      <h1 className="home__buttom-title">New Releases</h1>
-      <div className="home__games">
+      <h1 className="new-release__buttom-title">New Releases</h1>
+      <div className="new-release__character-container">
+        <p className="new-release__character-subheader">
+          Discover the latest gaming sensations on our New Game Releases page.
+          Stay ahead with cutting-edge adventures, innovative gameplay, and
+          mesmerizing graphics. From big-budget blockbusters to indie gems, find
+          something for every gamer. Explore detailed profiles, trailers, and
+          reviews. Join our community, stay updated, and be part of the gaming
+          revolution!
+        </p>
+
+        <div className="new-release__character-right"></div>
+      </div>
+
+      <div className="new-release__games">
         {newReleases.map((item) => {
           return (
             <Link to={`/game/${item.id}`}>

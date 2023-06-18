@@ -161,6 +161,18 @@ function LibraryPage() {
         </div>
       </div>
 
+      <div className="library__character-container">
+        <p className="library__character-subheader">
+          Welcome to our Gaming Library! Discover a vast collection of thrilling
+          games across genres and platforms. Find blockbuster hits, indie gems,
+          and timeless classics. Explore detailed descriptions, ratings, and
+          reviews. Join our gaming community, stay updated with the latest news,
+          and embark on unforgettable gaming journeys. Start exploring today!
+        </p>
+
+        <div className="library__character-right"></div>
+      </div>
+
       {/* Returning Card */}
 
       <div className="library__games">
