@@ -22,8 +22,20 @@ function Publishers() {
 
   return (
     <>
-      <h1 className="home__buttom-title">Publishers</h1>
-      <div className="home__games">
+      <h1 className="publishers__buttom-title">Publishers</h1>
+
+      <div className="publishers__character-container">
+        <p className="publishers__character-subheader">
+          Discover the game-changing publishers behind your favorite titles on
+          our Game Publishers page. From industry giants to independent studios,
+          explore their diverse portfolios and upcoming releases. Stay updated,
+          connect with fellow gamers, and celebrate the creativity that shapes
+          the gaming industry. Start exploring today!
+        </p>
+        <div className="publishers__character-right"></div>
+      </div>
+
+      <div className="publishers__games">
         {allPublishers.map((item) => {
           return (
             <Link to={`/game/${item.id}`}>

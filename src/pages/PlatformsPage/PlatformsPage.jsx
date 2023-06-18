@@ -21,13 +21,11 @@ function Platforms() {
       <h1 className="platforms__buttom-title">Platforms</h1>
       <div className="platforms__character-container">
         <p className="platforms__character-subheader">
-          Welcome to our Top Metacritic page! Discover the highest-rated games
-          across genres and platforms that have captivated both critics and
-          players. Explore captivating worlds, engage in strategic battles, and
-          indulge in cinematic storytelling. Join our community and experience
-          gaming excellence at its finest.
+          Explore gaming across platforms on our Platforms page. Discover
+          diverse experiences for PC, console, handheld, and mobile. Find
+          exclusive titles, cross-platform favorites, and connect with
+          like-minded players. Start your gaming journey today!
         </p>
-
         <div className="platforms__character-right"></div>
       </div>
 
