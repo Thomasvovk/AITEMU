@@ -33,12 +33,12 @@ function LibraryPage() {
     const api = `${apiGameList}&platforms=${filter.platform}`;
     axios.get(api).then((response) => {
       setLibrary(response.data.results);
-      //   const list = response.data.results.map((item) => {
-      //     const [api, imagePath] = item.image_background.split("media/");
-      //     item.image_background = `${api}media/resize/640/-/${imagePath}`;
-      //     return item;
-      //   });
-      //   setLibrary(list);
+      const list = response.data.results.map((item) => {
+        const [api, imagePath] = item.image_background.split("media/");
+        item.image_background = `${api}media/resize/640/-/${imagePath}`;
+        return item;
+      });
+      setLibrary(list);
     });
   }, [filter.platform]);
 

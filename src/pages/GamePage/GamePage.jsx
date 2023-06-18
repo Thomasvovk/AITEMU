@@ -20,7 +20,10 @@ function GamePage() {
 
   useEffect(() => {
     axios.get(`${apiUrlGames}/${id}?&key=${apiKey}`).then((response) => {
-      setSelectedGame(response.data);
+      const item = response.data;
+      const [api, imagePath] = item.background_image.split("media/");
+      item.image = `${api}media/resize/640/-/${imagePath}`;
+      setSelectedGame(item);
     });
   }, []);
 
