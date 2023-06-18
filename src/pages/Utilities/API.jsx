@@ -4,7 +4,7 @@ export const apiUrlPlatforms = "https://api.rawg.io/api/platforms";
 export const apiUrlPublisher = "https://api.rawg.io/api/publishers";
 export const apiGenres = "https://api.rawg.io/api/genres";
 export const queryMetacritic = "metacritic=50,100";
-export const pageSize = "page_size=200";
+export const pageSize = "page_size=500";
 export const recentGamesReleases = "dates=2023-05-01,2023-05-31";
 // export const screenshots = "screenshots";
 // export const id = ":id";

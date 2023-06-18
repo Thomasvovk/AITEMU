@@ -1,0 +1,46 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+
+.search {
+  &__search {
+    width: 100%;
+    margin-top: 1rem;
+    @include tablet {
+      width: 30%;
+      margin-top: 0;
+      margin-right: 1rem;
+    }
+  }
+
+  &__search-input {
+    // background-image: url("../../assets/);
+    background-color: rgb(28, 28, 28);
+    background-repeat: no-repeat;
+    background-position: 94%;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 0.5rem 1rem;
+    height: 30px;
+    width: 90%;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    color: rgb(228, 228, 228);
+
+    &:focus {
+      outline: none;
+      border: 1px solid black;
+    }
+
+    @include tablet {
+      height: 35px;
+
+      background-position: 90%;
+    }
+    @include desktop {
+      width: 300px;
+      background-position: 93%;
+    }
+  }
+}

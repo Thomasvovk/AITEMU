@@ -2,6 +2,7 @@ import "../Header/Header.scss";
 import logo from "../../assets/images/logo/logo-white.png";
 import profile from "../../assets/images/icons/profile-icon-white.png";
 import { Link } from "react-router-dom";
+import Search from "../Search/Search";
 
 function Header() {
   return (
@@ -17,17 +18,7 @@ function Header() {
           <li className="header__container">About Us</li>
         </Link>
       </ul>
-
-      <div className="header__search">
-        <form className="header__search-form">
-          <input
-            type="search"
-            name="search"
-            className="header__search-input"
-            placeholder="Search..."
-          ></input>
-        </form>
-      </div>
+      <Search />
       <Link to="/my-profile">
         <img src={profile} className="header__profile" alt="profile icon" />
       </Link>
