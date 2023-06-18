@@ -98,7 +98,7 @@
     justify-content: center;
     border: 0.5px solid white;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: white;
     width: 200px;
     height: 270px;
     @include tablet {
@@ -107,7 +107,6 @@
       justify-content: center;
       border: 0.5px solid white;
       border-radius: 10px;
-      background-color: white;
       width: 200px;
       height: 240px;
     }
@@ -156,12 +155,21 @@
     font-family: "Poppins Bold";
   }
 
-  &__character {
+  &__character-right {
     background-image: url(../../assets/images/vectors/undraw_game_world_re_e44j.svg);
     background-size: cover;
     background-position: top;
     width: 500px;
     height: 500px;
+  }
+
+  &__character-left {
+    background-image: url(../../assets/images/vectors/undraw_gaming_re_cma2.svg);
+    background-size: cover;
+    background-position: left;
+    width: 500px;
+    height: 500px;
+    margin-right: 4rem;
   }
 
   &__character-subheader {
