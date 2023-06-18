@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/new-releases" element={<NewReleasesPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about-us" element={<AboutPage />} />
         <Route path="/game/:id" element={<GamePage />} />
         <Route path="/my-profile" element={<MyProfilePage />} />
         <Route path="/top-metacritic" element={<TopMetacritic />} />

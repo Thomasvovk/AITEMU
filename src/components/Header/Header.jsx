@@ -13,8 +13,9 @@ function Header() {
         <Link className="header__link" to="/new-releases">
           <li className="header__container">New Releases</li>
         </Link>
-
-        <li className="header__container">About Us</li>
+        <Link className="header__link" to="/about-us">
+          <li className="header__container">About Us</li>
+        </Link>
       </ul>
 
       <div className="header__search">
