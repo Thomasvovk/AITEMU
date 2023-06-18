@@ -2,3 +2,43 @@
 @use "../../styles//partials/fonts" as *;
 @use "../../styles//partials/global" as *;
 @use "../../styles//partials/mixins" as *;
+
+.top-metacritic {
+  &__buttom-title {
+    margin-left: 2.4rem;
+    margin-bottom: 2rem;
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: "Poppins Bold";
+  }
+
+  &__character-right {
+    background-image: url(../../assets/images/vectors/undraw_close_tab_re_4cj6.svg);
+    background-size: cover;
+    background-position: center;
+    width: 500px;
+    height: 500px;
+  }
+
+  &__character-subheader {
+    width: 50%;
+    font-family: $font-extra-light;
+    font-size: 15px;
+    margin-right: 4rem;
+    line-height: 1.75rem;
+  }
+
+  &__character-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  &__games {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

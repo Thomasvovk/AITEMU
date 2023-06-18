@@ -25,8 +25,20 @@ function TopMetacritic() {
 
   return (
     <>
-      <h1 className="home__buttom-title">Top Metacritic</h1>
-      <div className="home__games">
+      <h1 className="top-metacritic__buttom-title">Top Metacritic</h1>
+      <div className="top-metacritic__character-container">
+        <p className="top-metacritic__character-subheader">
+          Welcome to our Top Metacritic page! Discover the highest-rated games
+          across genres and platforms that have captivated both critics and
+          players. Explore captivating worlds, engage in strategic battles, and
+          indulge in cinematic storytelling. Join our community and experience
+          gaming excellence at its finest.
+        </p>
+
+        <div className="top-metacritic__character-right"></div>
+      </div>
+
+      <div className="top-metacritic__games">
         {allGames.map((item) => {
           return (
             <Link to={`/game/${item.id}`} key={item.id}>
