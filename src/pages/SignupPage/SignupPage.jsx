@@ -62,6 +62,17 @@ function SignUpPage() {
                 id="email"
                 required
               />
+              <label className="sign-up__container-title" for="email">
+                Confirm your Password{" "}
+              </label>
+              <input
+                className="sign-up__container-input"
+                type="email"
+                name="email"
+                placeholder="Please enter your password"
+                id="email"
+                required
+              />
             </div>
             <Link className="sign-up__forgot-link" to="/login">
               <p className="sign-up__forgot-password">Already a user?</p>

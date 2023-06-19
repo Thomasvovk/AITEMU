@@ -17,4 +17,4 @@ export const apiPublishersList = `${apiUrlPublisher}?${pageSize}&key=${apiKey}`;
 export const apiGenresList = `${apiGenres}?${pageSize}&key=${apiKey}`;
 export const apiGameTrailer = `${apiUrlGames}`;
 
-export const apiSearch = `${apiUrlGames}?${search}&key=${apiKey}`;
+export const apiSearch = `${apiUrlGames}?key=${apiKey}`;

@@ -28,13 +28,13 @@ function GamePage() {
 
       setSelectedGame(item);
     });
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     axios.get(`${apiUrlGames}/${id}/movies?&key=${apiKey}`).then((response) => {
       setselectedGameTrailer(response.data.results);
     });
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     axios
@@ -49,7 +49,7 @@ function GamePage() {
         });
         setselectedGameScreenshots(list);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
