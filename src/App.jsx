@@ -14,7 +14,6 @@ import Publishers from "./pages/PublishersPage/PublishersPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignupPage/SignupPage";
 import NotFound from "./pages/NotFoundPage/NotFoundPage";
-// import Content from "./components/Content/Content";
 
 function App() {
   return (

@@ -2,3 +2,38 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
+
+.not-found {
+  &__title {
+    margin-left: 2.4rem;
+    margin-bottom: 2rem;
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: "Poppins Bold";
+  }
+
+  &__character-right {
+    background-image: url(../../assets/images/vectors/undraw_page_not_found_re_e9o6.svg);
+    background-size: cover;
+    background-position: center;
+    width: 910px;
+    height: 590px;
+  }
+
+  &__character-subheader {
+    width: 70%;
+    font-family: $font-thin;
+    font-size: 20px;
+    line-height: 1.75rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  &__character-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    flex-direction: column;
+  }
+}
