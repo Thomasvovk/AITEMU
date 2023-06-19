@@ -11,6 +11,9 @@ import GamePage from "./pages/GamePage/GamePage";
 import TopMetacritic from "./pages/TopMetacriticPage/TopMetacriticPage";
 import Platforms from "./pages/PlatformsPage/PlatformsPage";
 import Publishers from "./pages/PublishersPage/PublishersPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SignUpPage from "./pages/SignupPage/SignupPage";
+import NotFound from "./pages/NotFoundPage/NotFoundPage";
 // import Content from "./components/Content/Content";
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
         <Route path="/top-metacritic" element={<TopMetacritic />} />
         <Route path="/platforms" element={<Platforms />} />
         <Route path="/publishers" element={<Publishers />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
