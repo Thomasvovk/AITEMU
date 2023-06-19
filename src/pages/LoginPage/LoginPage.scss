@@ -2,3 +2,42 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
+
+.log-in {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 4rem;
+  &__image {
+    background-image: url(../../assets/images/vectors/undraw_unlock_re_a558.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+    height: 770px;
+  }
+  &__title {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: $font-bold;
+  }
+
+  &__subheader {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: $font-light;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 2.75rem;
+    font-family: $font-light;
+    margin-bottom: 4rem;
+  }
+}
+
+audio {
+  filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(82%);
+  width: 300px;
+  height: 25px;
+}
