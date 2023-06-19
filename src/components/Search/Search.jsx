@@ -39,7 +39,11 @@ function SearchBar() {
           <ul className="search__search-output">
             {results.map((result, index) => (
               <li onClick={handleSearch} key={index}>
-                <Link to={`/game/${result.id}`} key={result.id}>
+                <Link
+                  className="search__output-link"
+                  to={`/game/${result.id}`}
+                  key={result.id}
+                >
                   {result.name}
                 </Link>
               </li>
