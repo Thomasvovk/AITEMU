@@ -206,4 +206,10 @@
       position: absolute;
     }
   }
+
+  &__trailer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -87,8 +87,12 @@ function GamePage() {
             <img className="selected-game__icon-toplay" src={toplayIcon} />
           </div>
         </div>
-        <div>
-          <ReactPlayer url={selectedGameTrailer} controls={true} />
+        <div className="selected-game__trailer-container">
+          <ReactPlayer
+            className="selected-game__trailer"
+            url={selectedGameTrailer}
+            controls={true}
+          />
         </div>
 
         <h2 className="selected-game__title">Description</h2>
