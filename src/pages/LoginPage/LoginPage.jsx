@@ -10,7 +10,9 @@ function LoginPage() {
           <h1 className="log-in__title">Welcome to AITEMU </h1>
           <h2 className="log-in__subheader">Sign In to Continue</h2>
           <p className="log-in__description">
-            Don't have an account? Create a account It takes less than a minute.
+            Not part of our gaming community yet? Forge your path by creating an
+            account. The process is quick, taking less than a minute. Get ready
+            to unlock a world of gaming possibilities!
           </p>
           <form action="" method="get">
             <div className="log-in__auth-container">

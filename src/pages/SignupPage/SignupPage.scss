@@ -12,11 +12,12 @@
   }
 
   &__image {
-    background-image: url(../../assets/images/vectors/undraw_access_account_re_8spm.svg);
+    background-image: url(../../assets/images/vectors/undraw_sign_up_n6im.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 30%;
+    width: 90%;
     height: 800px;
+    margin-right: 4rem;
   }
 
   &__title {
@@ -34,11 +35,13 @@
 
   &__description {
     font-size: 15px;
-    line-height: 2.75rem;
+    line-height: 1.75rem;
     font-family: $font-light;
     margin-bottom: 2rem;
   }
-
+  &__profile-name {
+    margin-bottom: 2rem;
+  }
   &__auth-container {
     margin-bottom: 2rem;
   }
@@ -79,5 +82,8 @@
     color: white;
     font-size: 15px;
     font-family: $font-light;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
