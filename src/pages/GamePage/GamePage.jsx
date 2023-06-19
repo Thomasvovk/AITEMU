@@ -21,8 +21,11 @@ function GamePage() {
   useEffect(() => {
     axios.get(`${apiUrlGames}/${id}?&key=${apiKey}`).then((response) => {
       const item = response.data;
-      const [api, imagePath] = item.background_image.split("media/");
-      item.image = `${api}media/resize/640/-/${imagePath}`;
+      if (item.background_image) {
+        const [api, imagePath] = item.background_image.split("media/");
+        item.image = `${api}media/resize/640/-/${imagePath}`;
+      }
+
       setSelectedGame(item);
     });
   }, []);
@@ -32,8 +35,10 @@ function GamePage() {
       .get(`${apiUrlGames}/${id}/screenshots?&key=${apiKey}`)
       .then((response) => {
         const list = response.data.results.map((item) => {
-          const [api, imagePath] = item.image.split("media/");
-          item.image = `${api}media/resize/640/-/${imagePath}`;
+          if (item.image) {
+            const [api, imagePath] = item.image.split("media/");
+            item.image = `${api}media/resize/640/-/${imagePath}`;
+          }
           return item;
         });
         setselectedGameScreenshots(list);

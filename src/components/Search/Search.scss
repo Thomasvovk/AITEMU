@@ -43,4 +43,16 @@
       background-position: 93%;
     }
   }
+
+  &__search-output {
+    width: 300px;
+    padding-top: 1rem;
+    background-color: $Main-Background;
+    font-size: 14px;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-family: $font-extra-light;
+    height: 100px;
+    overflow-y: auto;
+  }
 }
