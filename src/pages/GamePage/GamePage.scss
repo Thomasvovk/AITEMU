@@ -167,23 +167,36 @@
       position: relative;
     }
   }
-
+  &__icons-box {
+    width: 200px;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    background-color: white;
+    border-radius: 4px;
+    opacity: 0.7;
+  }
   &__icon-favourite {
     @include tablet {
       width: 25px;
       height: 25px;
-      bottom: 50px;
-      left: 40px;
-      position: absolute;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      margin-top: 7px;
+      // bottom: 50px;
+      // left: 40px;
+      // position: absolute;
     }
   }
   &__icon-completed {
     @include tablet {
       width: 25px;
       height: 25px;
-      bottom: 50px;
-      left: 80px;
-      position: absolute;
+      margin-right: 1rem;
+      margin-top: 7px;
+      // bottom: 50px;
+      // left: 80px;
+      // position: absolute;
     }
   }
 
@@ -191,9 +204,11 @@
     @include tablet {
       width: 25px;
       height: 25px;
-      bottom: 50px;
-      left: 120px;
-      position: absolute;
+      margin-right: 1rem;
+      margin-top: 7px;
+      // bottom: 50px;
+      // left: 120px;
+      // position: absolute;
     }
   }
 
@@ -201,9 +216,10 @@
     @include tablet {
       width: 25px;
       height: 25px;
-      bottom: 50px;
-      left: 160px;
-      position: absolute;
+      margin-right: 1rem;
+      // bottom: 50px;
+      // left: 160px;
+      // position: absolute;
     }
   }
 

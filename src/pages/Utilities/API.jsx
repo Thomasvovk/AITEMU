@@ -7,7 +7,7 @@ export const queryMetacritic = "metacritic=90,100";
 export const pageSize = "page_size=200";
 export const recentGamesReleases = "dates=2023-05-01,2023-05-31";
 export const search = "search=''";
-export const searchResultsSize = "page_size=5";
+export const searchResultsSize = "page_size=4";
 
 export const apiGameID = `${apiUrlGames}/:id?&key=${apiKey}`;
 export const apiGameList = `${apiUrlGames}?${pageSize}&key=${apiKey}`;

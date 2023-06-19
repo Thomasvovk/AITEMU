@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import favouriteIcon from "../../assets/images/icons/heart-black.png";
 import completedIcon from "../../assets/images/icons/completed-black2.png";
-import toplayIcon from "../../assets/images/icons/to-do-black.png";
+import toplayIcon from "../../assets/images/icons/to-plat-list-white.png";
 import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png";
 import parse from "html-react-parser";
 import { apiUrlGames, apiKey } from "../Utilities/API";
@@ -16,7 +16,7 @@ function GamePage() {
 
   const [selectedGame, setSelectedGame] = useState({});
   const [selectedGameScreenshots, setselectedGameScreenshots] = useState([]);
-  const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
+  // const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
 
   useEffect(() => {
     axios.get(`${apiUrlGames}/${id}?&key=${apiKey}`).then((response) => {
@@ -30,11 +30,11 @@ function GamePage() {
     });
   }, [id]);
 
-  useEffect(() => {
-    axios.get(`${apiUrlGames}/${id}/movies?&key=${apiKey}`).then((response) => {
-      setselectedGameTrailer(response.data.results);
-    });
-  }, [id]);
+  // useEffect(() => {
+  //   axios.get(`${apiUrlGames}/${id}/movies?&key=${apiKey}`).then((response) => {
+  //     setselectedGameTrailer(response.data.results);
+  //   });
+  // }, [id]);
 
   useEffect(() => {
     axios
@@ -70,30 +70,32 @@ function GamePage() {
             {selectedGame.metacritic}
           </p>
           <div className="selected-game__icons-container">
-            <img
-              className="selected-game__icon-favourite"
-              src={favouriteIcon}
-              alt="background game image"
-            />
-            <img
-              className="selected-game__icon-completed"
-              src={completedIcon}
-            />
-            <img
-              className="selected-game__icon-progress"
-              src={inprogressIcon}
-              alt="background game image"
-            />
-            <img className="selected-game__icon-toplay" src={toplayIcon} />
+            <div className="selected-game__icons-box">
+              <img
+                className="selected-game__icon-favourite"
+                src={favouriteIcon}
+                alt="background game image"
+              />
+              <img
+                className="selected-game__icon-completed"
+                src={completedIcon}
+              />
+              <img
+                className="selected-game__icon-progress"
+                src={inprogressIcon}
+                alt="background game image"
+              />
+              <img className="selected-game__icon-toplay" src={toplayIcon} />
+            </div>
           </div>
         </div>
-        <div className="selected-game__trailer-container">
+        {/* <div className="selected-game__trailer-container">
           <ReactPlayer
             className="selected-game__trailer"
             url={selectedGameTrailer}
             controls={true}
           />
-        </div>
+        </div> */}
 
         <h2 className="selected-game__title">Description</h2>
         {selectedGame.description && (
