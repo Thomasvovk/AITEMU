@@ -45,14 +45,21 @@
   }
 
   &__search-output {
-    width: 300px;
-    padding-top: 1rem;
-    background-color: $Main-Background;
-    font-size: 14px;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    font-family: $font-extra-light;
-    height: 100px;
-    overflow-y: auto;
+    @include tablet {
+      height: 35px;
+      position: absolute;
+      top: 6%;
+      width: 300px;
+      right: 7%;
+      background-color: rgb(255, 255, 255);
+      color: black;
+      font-size: 14px;
+      margin-left: 2rem;
+      font-family: $font-extra-light;
+      height: 100px;
+      overflow-y: auto;
+    }
+    @include desktop {
+    }
   }
 }

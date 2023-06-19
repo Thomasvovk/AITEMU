@@ -31,6 +31,12 @@ function GamePage() {
   }, []);
 
   useEffect(() => {
+    axios.get(`${apiUrlGames}/${id}/movies?&key=${apiKey}`).then((response) => {
+      setselectedGameTrailer(response.data.results);
+    });
+  }, []);
+
+  useEffect(() => {
     axios
       .get(`${apiUrlGames}/${id}/screenshots?&key=${apiKey}`)
       .then((response) => {
@@ -81,8 +87,9 @@ function GamePage() {
             <img className="selected-game__icon-toplay" src={toplayIcon} />
           </div>
         </div>
-
-        <ReactPlayer url={selectedGameTrailer} controls={true} />
+        <div>
+          <ReactPlayer url={selectedGameTrailer} controls={true} />
+        </div>
 
         <h2 className="selected-game__title">Description</h2>
         {selectedGame.description && (
