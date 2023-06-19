@@ -2,3 +2,82 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
+
+.sign-up {
+  @include desktop {
+    @include desktop-grid;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10rem;
+  }
+
+  &__image {
+    background-image: url(../../assets/images/vectors/undraw_access_account_re_8spm.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30%;
+    height: 800px;
+  }
+
+  &__title {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: $font-bold;
+  }
+
+  &__subheader {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-family: $font-light;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 2.75rem;
+    font-family: $font-light;
+    margin-bottom: 2rem;
+  }
+
+  &__auth-container {
+    margin-bottom: 2rem;
+  }
+
+  &__container-title {
+    display: block;
+  }
+
+  &__container-input {
+    border-radius: 4px;
+    width: 300px;
+    height: 30px;
+    border: none;
+    padding-left: 1rem;
+    &:focus {
+      outline: none;
+      border: 1px solid black;
+      opacity: 0.9;
+    }
+  }
+  &__button-container {
+  }
+
+  &__forgot-link {
+    color: white;
+  }
+  &__forgot-password {
+    font-size: 12px;
+    font-family: $font-light;
+    margin-bottom: 1rem;
+  }
+  &__button {
+    border-radius: 4px;
+    width: 300px;
+    height: 30px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-family: $font-light;
+  }
+}
