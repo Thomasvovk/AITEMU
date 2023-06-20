@@ -36,6 +36,7 @@ function HomePage() {
             <div className="home__direction-container">
               <div className="home__direction-buttom-container">
                 <h2 className="home__direction-title">Platforms</h2>
+
                 <img
                   className="home__direction-icon"
                   src={arrowIcon}
