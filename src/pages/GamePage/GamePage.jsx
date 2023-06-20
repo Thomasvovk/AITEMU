@@ -8,7 +8,7 @@ import completedIcon from "../../assets/images/icons/completed-black2.png";
 import toplayIcon from "../../assets/images/icons/to-plat-list-white.png";
 import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png";
 import parse from "html-react-parser";
-import { apiUrlGames, apiKey } from "../Utilities/API";
+import { apiUrlGames, apiKey, apitGameAdditions } from "../Utilities/API";
 import ReactPlayer from "react-player";
 import Card from "../../components/Card/Card";
 
@@ -47,7 +47,7 @@ function GamePage() {
         setselectedGameScreenshots(list);
       });
   }, [id]);
-  // Additions Request
+  // DLC Request
   useEffect(() => {
     axios
       .get(`${apiUrlGames}/${id}/additions?&key=${apiKey}`)
@@ -57,7 +57,6 @@ function GamePage() {
           const [api, imagePath] = item.background_image.split("media/");
           item.image = `${api}media/resize/640/-/${imagePath}`;
         }
-
         setselectedGameAdditions(item);
       });
   }, [id]);
@@ -133,7 +132,7 @@ function GamePage() {
         </div>
         <div className="selected-game__divider-right"></div>
 
-        <h2 className="selected-game__title">Game Additions</h2>
+        <h2 className="selected-game__title">DLC</h2>
         <div className="selected-game__divider"></div>
         <div className="selected-game__additions-container">
           {selectedGameAdditions.map((item) => {
