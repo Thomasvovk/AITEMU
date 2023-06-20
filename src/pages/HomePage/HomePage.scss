@@ -192,25 +192,44 @@
     background-image: url(../../assets/images/vectors/undraw_game_world_re_e44j.svg);
     background-size: cover;
     background-position: top;
-    width: 500px;
-    height: 500px;
+    @include tablet {
+      width: 260px;
+      height: 320px;
+    }
+    @include desktop {
+      width: 500px;
+      height: 500px;
+    }
   }
 
   &__character-left {
     background-image: url(../../assets/images/vectors/undraw_gaming_re_cma2.svg);
     background-size: cover;
     background-position: left;
-    width: 500px;
-    height: 500px;
-    margin-right: 4rem;
+    @include tablet {
+      width: 260px;
+      height: 320px;
+      margin-right: 4rem;
+    }
+
+    @include desktop {
+      width: 500px;
+      height: 500px;
+    }
   }
 
   &__character-subheader {
-    width: 50%;
-    font-family: $font-extra-light;
-    font-size: 15px;
-    margin-right: 4rem;
-    line-height: 1.75rem;
+    @include tablet {
+      width: 50%;
+      font-family: $font-extra-light;
+      font-size: 15px;
+
+      line-height: 1.75rem;
+    }
+    @include desktop {
+      font-size: 15px;
+      margin-right: 0;
+    }
   }
 
   &__character-container {

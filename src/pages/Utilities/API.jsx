@@ -17,7 +17,7 @@ export const additions = "additions";
 
 export const apiGameID = `${apiUrlGames}/:id?&key=${apiKey}`;
 export const apiGameList = `${apiUrlGames}?${pageSize}&key=${apiKey}`;
-export const apitGameAdditions = `${apiUrlGames}?${additions}}&key=${apiKey}`;
+export const apitGameAdditions = `${apiUrlGames}?${additions}&key=${apiKey}`;
 export const apiAllGamesMetacritics = `${apiUrlGames}?${queryMetacritic}&${pageSize}&key=${apiKey}`;
 export const apiRecentGamesReleases = `${apiUrlGames}?${pageSize}&${recentGamesReleases}&key=${apiKey}`;
 export const apiPlatformsList = `${apiUrlPlatforms}?${pageSize}&key=${apiKey}`;
