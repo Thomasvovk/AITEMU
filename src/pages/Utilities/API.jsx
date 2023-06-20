@@ -11,11 +11,13 @@ export const pageSize = "page_size=200";
 export const recentGamesReleases = "dates=2023-05-01,2023-05-31";
 export const search = "search=''";
 export const searchResultsSize = "page_size=4";
+export const additions = "additions";
 
 //Finalized API's to use
 
 export const apiGameID = `${apiUrlGames}/:id?&key=${apiKey}`;
 export const apiGameList = `${apiUrlGames}?${pageSize}&key=${apiKey}`;
+export const apitGameAdditions = `${apiUrlGames}?${additions}}&key=${apiKey}`;
 export const apiAllGamesMetacritics = `${apiUrlGames}?${queryMetacritic}&${pageSize}&key=${apiKey}`;
 export const apiRecentGamesReleases = `${apiUrlGames}?${pageSize}&${recentGamesReleases}&key=${apiKey}`;
 export const apiPlatformsList = `${apiUrlPlatforms}?${pageSize}&key=${apiKey}`;

@@ -1,6 +1,7 @@
 import "../GamePage/GamePage.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import favouriteIcon from "../../assets/images/icons/heart-black.png";
 import completedIcon from "../../assets/images/icons/completed-black2.png";
@@ -9,6 +10,7 @@ import inprogressIcon from "../../assets/images/icons/icons8-in-progress-30.png"
 import parse from "html-react-parser";
 import { apiUrlGames, apiKey } from "../Utilities/API";
 import ReactPlayer from "react-player";
+import Card from "../../components/Card/Card";
 
 function GamePage() {
   const param = useParams();
@@ -16,6 +18,7 @@ function GamePage() {
 
   const [selectedGame, setSelectedGame] = useState({});
   const [selectedGameScreenshots, setselectedGameScreenshots] = useState([]);
+  const [selectedGameAdditions, setselectedGameAdditions] = useState([]);
   // const [selectedGameTrailer, setselectedGameTrailer] = useState([]);
 
   useEffect(() => {
@@ -42,6 +45,20 @@ function GamePage() {
           return item;
         });
         setselectedGameScreenshots(list);
+      });
+  }, [id]);
+  // Additions Request
+  useEffect(() => {
+    axios
+      .get(`${apiUrlGames}/${id}/additions?&key=${apiKey}`)
+      .then((response) => {
+        const item = response.data.results;
+        if (item.background_image) {
+          const [api, imagePath] = item.background_image.split("media/");
+          item.image = `${api}media/resize/640/-/${imagePath}`;
+        }
+
+        setselectedGameAdditions(item);
       });
   }, [id]);
 
@@ -115,7 +132,26 @@ function GamePage() {
           })}
         </div>
         <div className="selected-game__divider-right"></div>
+
+        <h2 className="selected-game__title">Game Additions</h2>
+        <div className="selected-game__divider"></div>
+        <div className="selected-game__additions-container">
+          {selectedGameAdditions.map((item) => {
+            return (
+              <Link to={`/game/${item.id}`}>
+                <Card
+                  key={item.id}
+                  name={item.name}
+                  image={item.background_image}
+                  id={item.id}
+                />
+              </Link>
+            );
+          })}
+        </div>
       </section>
+
+      <div className="selected-game__divider-right"></div>
     </>
   );
 }
