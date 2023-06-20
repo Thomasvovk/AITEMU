@@ -15,7 +15,7 @@
     background-image: url(../../assets/images/vectors/undraw_sign_in_re_o58h.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 90%;
+    width: 50%;
     height: 800px;
     margin-right: 4rem;
   }
@@ -40,6 +40,10 @@
     margin-bottom: 2rem;
   }
 
+  &__credentials-contaiter {
+    width: 50%;
+  }
+
   &__auth-container {
     margin-bottom: 2rem;
   }
@@ -59,6 +63,23 @@
       border: 1px solid black;
       opacity: 0.9;
     }
+    // width: 300px;
+    // height: 30px;
+    // background-color: rgb(28, 28, 28);
+    // background-repeat: no-repeat;
+    // background-position: 94%;
+    // border-radius: 5px;
+    // border: 1px solid;
+    // padding: 0.5rem 1rem;
+    // color: white;
+    // margin-right: 1rem;
+    // margin-top: 1rem;
+    // margin-bottom: 1rem;
+
+    // &:focus {
+    //   outline: none;
+    //   border: 1px solid black;
+    // }
   }
 
   &__forgot-link {

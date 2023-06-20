@@ -30,12 +30,6 @@ function GamePage() {
     });
   }, [id]);
 
-  // useEffect(() => {
-  //   axios.get(`${apiUrlGames}/${id}/movies?&key=${apiKey}`).then((response) => {
-  //     setselectedGameTrailer(response.data.results);
-  //   });
-  // }, [id]);
-
   useEffect(() => {
     axios
       .get(`${apiUrlGames}/${id}/screenshots?&key=${apiKey}`)
@@ -50,6 +44,10 @@ function GamePage() {
         setselectedGameScreenshots(list);
       });
   }, [id]);
+
+  if ((selectedGame, selectedGameScreenshots === null)) {
+    return <span className="loader"></span>;
+  }
 
   return (
     <>

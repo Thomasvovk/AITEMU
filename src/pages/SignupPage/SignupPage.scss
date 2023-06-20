@@ -15,9 +15,13 @@
     background-image: url(../../assets/images/vectors/undraw_sign_up_n6im.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 90%;
+    width: 50%;
     height: 800px;
     margin-right: 4rem;
+  }
+
+  &__credentials-contaiter {
+    width: 50%;
   }
 
   &__title {
