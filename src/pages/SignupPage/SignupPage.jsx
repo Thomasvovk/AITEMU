@@ -1,7 +1,38 @@
 import "../SignupPage/SignupPage.scss";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+import React, { useEffect, useState } from "react";
 
-function SignUpPage() {
+export default function SignUpPage() {
+  const navigate = useNavigate();
+  const { signup, currentUser } = useAuth();
+  const [form, setForm] = useState({ email: "", password: "" });
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/");
+    }
+  }, [currentUser]);
+
+  function setFormValue(inputName, event) {
+    const value = event.target.value;
+
+    setForm((prevState) => {
+      return { ...prevState, [inputName]: value };
+    });
+  }
+
+  async function handlesubmit(e) {
+    e.preventDefault();
+    const { email, password } = form;
+
+    signup(email, password)
+      .then(() => navigate("/"))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <>
       <div className="sign-up">
@@ -13,64 +44,33 @@ function SignUpPage() {
             Not a gamer yet? Level up by creating an account. It only takes a
             minute, and you'll be ready to embark on your gaming adventure.
           </p>
-          <form action="" method="get">
+
+          <form onSubmit={handlesubmit} action="" method="get">
             <div className="sign-up__auth-container">
-              <label className="sign-up__container-title" for="name">
-                Your Profile Name{" "}
-              </label>
-              <input
-                className="sign-up__container-input sign-up__profile-name"
-                type="text"
-                name="name"
-                placeholder="Please enter your profile name"
-                id="name"
-                required
-              />
-              <label className="sign-up__container-title" for="name">
+              <label className="sign-up__container-title" for="email">
                 Email{" "}
               </label>
               <input
                 className="sign-up__container-input"
-                type="text"
-                name="name"
+                type="email"
+                name="email"
                 placeholder="Please enter your email"
-                id="name"
-                required
-              />
-
-              <label className="sign-up__container-title" for="name">
-                Confirm your email{" "}
-              </label>
-              <input
-                className="sign-up__container-input"
-                type="text"
-                name="name"
-                placeholder="Please enter your email"
-                id="name"
+                id="email"
+                onInput={(e) => setFormValue("email", e)}
                 required
               />
             </div>
             <div className="sign-up__auth-container">
-              <label className="sign-up__container-title" for="email">
+              <label className="sign-up__container-title" for="password">
                 Password{" "}
               </label>
               <input
                 className="sign-up__container-input"
-                type="email"
-                name="email"
+                type="password"
+                name="password"
                 placeholder="Please enter your password"
-                id="email"
-                required
-              />
-              <label className="sign-up__container-title" for="email">
-                Confirm your Password{" "}
-              </label>
-              <input
-                className="sign-up__container-input"
-                type="email"
-                name="email"
-                placeholder="Please enter your password"
-                id="email"
+                id="password"
+                onInput={(e) => setFormValue("password", e)}
                 required
               />
             </div>
@@ -90,5 +90,3 @@ function SignUpPage() {
     </>
   );
 }
-
-export default SignUpPage;

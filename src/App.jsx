@@ -1,5 +1,6 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
@@ -14,21 +15,6 @@ import Publishers from "./pages/PublishersPage/PublishersPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignupPage/SignupPage";
 import NotFound from "./pages/NotFoundPage/NotFoundPage";
-
-import { initializeApp } from "firebase/app";
-
-// TODO: Replace the following with your app's Firebase project configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCc41ojshQEP581fdmt-xymueGGGJoo5UU",
-  authDomain: "aitemu-a54fc.firebaseapp.com",
-  projectId: "aitemu-a54fc",
-  storageBucket: "aitemu-a54fc.appspot.com",
-  messagingSenderId: "715989601495",
-  appId: "1:715989601495:web:ee22e4e8b19bd20f49b492",
-  measurementId: "G-K6PGFYENX8",
-};
-
-const app = initializeApp(firebaseConfig);
 
 function App() {
   return (

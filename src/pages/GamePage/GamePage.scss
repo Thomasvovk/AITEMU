@@ -187,6 +187,9 @@
       // left: 40px;
       // position: absolute;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__icon-completed {
     @include tablet {
@@ -197,6 +200,9 @@
       // bottom: 50px;
       // left: 80px;
       // position: absolute;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 
@@ -210,6 +216,9 @@
       // left: 120px;
       // position: absolute;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__icon-toplay {
@@ -220,6 +229,9 @@
       // bottom: 50px;
       // left: 160px;
       // position: absolute;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 

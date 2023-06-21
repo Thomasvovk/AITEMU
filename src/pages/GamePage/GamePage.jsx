@@ -11,8 +11,12 @@ import parse from "html-react-parser";
 import { apiUrlGames, apiKey, apitGameAdditions } from "../Utilities/API";
 import ReactPlayer from "react-player";
 import Card from "../../components/Card/Card";
+import { useDb } from "../../contexts/DbContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function GamePage() {
+  const { addToFavourites: dbAddToFavourites } = useDb();
+  const { currentUser } = useAuth();
   const param = useParams();
   const id = param.id;
 
@@ -47,7 +51,7 @@ function GamePage() {
         setselectedGameScreenshots(list);
       });
   }, [id]);
-  // DLC Request
+
   useEffect(() => {
     axios
       .get(`${apiUrlGames}/${id}/additions?&key=${apiKey}`)
@@ -60,6 +64,16 @@ function GamePage() {
         setselectedGameAdditions(item);
       });
   }, [id]);
+
+  function addToFavourites() {
+    dbAddToFavourites(id, currentUser.uid, selectedGame)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   if ((selectedGame, selectedGameScreenshots === null)) {
     return <span className="loader"></span>;
@@ -88,6 +102,7 @@ function GamePage() {
               <img
                 className="selected-game__icon-favourite"
                 src={favouriteIcon}
+                onClick={() => addToFavourites(selectedGame)}
                 alt="background game image"
               />
               <img

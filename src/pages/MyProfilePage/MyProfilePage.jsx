@@ -3,19 +3,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiAllGamesMetacritics } from "../Utilities/API";
 import Card from "../../components/Card/Card";
+import { useDb } from "../../contexts/DbContext";
+import { useAuth } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 function MyProfilePage() {
-  const [allGames, setAllGames] = useState([]);
+  const { listFavourites } = useDb();
+  const { currentUser } = useAuth();
+  const [fav, setFav] = useState([]);
 
   useEffect(() => {
-    axios.get(apiAllGamesMetacritics).then((response) => {
-      setAllGames(response.data.results);
-    });
-  }, []);
+    if (currentUser) {
+      listFavourites(currentUser.uid).then((res) => {
+        const favList = res.docs.map((doc) => doc.data());
+        setFav(favList);
+      });
+    }
+  }, [currentUser]);
 
   function openGame(id) {
     console.log(id);
   }
+
   return (
     <>
       <h1 className="profile">My Profile</h1>
@@ -28,16 +37,20 @@ function MyProfilePage() {
         </div>
       </section>
       <div className="profile__games">
-        {allGames.map((item) => {
-          return (
-            <Card
-              name={item.name}
-              image={item.background_image}
-              id={item.id}
-              open={openGame}
-            />
-          );
-        })}
+        {Array.isArray(fav) &&
+          fav.length > 0 &&
+          fav.map((item) => {
+            return (
+              <Link to={`/game/${item.id}`}>
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  image={item.background_image}
+                  name={item.name}
+                />
+              </Link>
+            );
+          })}
       </div>
     </>
   );
