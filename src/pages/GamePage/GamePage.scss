@@ -189,6 +189,7 @@
     }
     &:hover {
       cursor: pointer;
+      border: 2px solid black;
     }
   }
   &__icon-completed {
@@ -203,6 +204,7 @@
     }
     &:hover {
       cursor: pointer;
+      border: 2px solid black;
     }
   }
 
@@ -218,6 +220,7 @@
     }
     &:hover {
       cursor: pointer;
+      border: 2px solid black;
     }
   }
 
@@ -226,12 +229,10 @@
       width: 25px;
       height: 25px;
       margin-right: 1rem;
-      // bottom: 50px;
-      // left: 160px;
-      // position: absolute;
     }
     &:hover {
       cursor: pointer;
+      border: 2px solid black;
     }
   }
 

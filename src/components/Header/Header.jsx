@@ -22,9 +22,17 @@ function Header() {
 
       <SearchBar />
 
-      <Link to="/my-profile">
-        <img src={profile} className="header__profile" alt="profile icon" />
-      </Link>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src={profile} alt="profile icon" className="header__profile" />
+        </button>
+
+        <div class="dropdown-content">
+          <Link to="/my-profile">My Dashboard</Link>
+          <a href="#">My Preferences</a>
+          <a href="#">Sign Out</a>
+        </div>
+      </div>
 
       <Link className="header__link" to="/">
         <img className="header__logo" src={logo} />
