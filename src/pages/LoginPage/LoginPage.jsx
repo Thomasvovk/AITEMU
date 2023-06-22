@@ -1,7 +1,36 @@
 import "../LoginPage/LoginPage.scss";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  function setFormValue(inputName, event) {
+    const value = event.target.value;
+    setForm((prevState) => ({ ...prevState, [inputName]: value }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const { email, password } = form;
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(email, password);
+      navigate("/");
+    } catch (error) {
+      setError("Failed to log in. Please check your credentials.");
+    }
+
+    setLoading(false);
+  }
+
   return (
     <>
       <div className="log-in">
@@ -14,9 +43,9 @@ function LoginPage() {
             account. The process is quick, taking less than a minute. Get ready
             to unlock a world of gaming possibilities!
           </p>
-          <form action="" method="get">
+          <form onSubmit={handleSubmit} action="" method="get">
             <div className="log-in__auth-container">
-              <label className="log-in__container-title" for="email">
+              <label className="log-in__container-title" htmlFor="email">
                 Email{" "}
               </label>
               <input
@@ -26,10 +55,11 @@ function LoginPage() {
                 placeholder="Please enter your email"
                 id="email"
                 required
+                onChange={(e) => setFormValue("email", e)}
               />
             </div>
             <div className="log-in__auth-container">
-              <label className="log-in__container-title" for="password">
+              <label className="log-in__container-title" htmlFor="password">
                 Password{" "}
               </label>
               <input
@@ -39,25 +69,31 @@ function LoginPage() {
                 placeholder="Please enter your password"
                 id="password"
                 required
+                onChange={(e) => setFormValue("password", e)}
               />
             </div>
             <Link className="log-in__forgot-link" to="#">
               <p className="log-in__forgot-password">Forgot Password?</p>
             </Link>
             <div className="log-in__button-container">
-              <input className="log-in__button" type="submit" value="Sign in" />
+              <button
+                className="log-in__button"
+                type="submit"
+                disabled={loading}
+              >
+                Sign in
+              </button>
             </div>
-
-            <Link to="/sign-up">
-              <div className="log-in__signup-container">
-                <input
-                  className="log-in__signup-button"
-                  type="submit"
-                  value="Sign up"
-                />
-              </div>
-            </Link>
           </form>
+          <Link to="/sign-up">
+            <div className="log-in__signup-container">
+              <input
+                className="log-in__signup-button"
+                type="submit"
+                value="Sign up"
+              />
+            </div>
+          </Link>
         </div>
       </div>
     </>
