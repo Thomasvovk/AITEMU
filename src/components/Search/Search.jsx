@@ -1,5 +1,5 @@
 import "../Search/Search.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { apiSearch } from "../../pages/Utilities/API";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [results, setResults] = useState([]);
+  const searchRef = useRef();
 
   useEffect(() => {
     if (searchQuery) {
@@ -18,7 +19,19 @@ function SearchBar() {
     } else {
       setResults([]);
     }
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
   }, [searchQuery]);
+
+  function handleClickOutside(event) {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setResults([]);
+    }
+  }
 
   function handleSearch() {
     setResults([]);
@@ -26,7 +39,7 @@ function SearchBar() {
   }
 
   return (
-    <div className="search__search">
+    <div className="search__search" ref={searchRef}>
       <form className="search__search-form">
         <input
           type="text"
