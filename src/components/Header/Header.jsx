@@ -3,6 +3,7 @@ import logo from "../../assets/images/logo/logo-white.png";
 import profile from "../../assets/images/icons/profile-icon-white.png";
 import { Link } from "react-router-dom";
 import SearchBar from "../Search/Search";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Header() {
   return (

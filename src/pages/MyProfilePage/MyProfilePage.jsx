@@ -9,14 +9,15 @@ import { Link } from "react-router-dom";
 
 function MyProfilePage() {
   const { listFavourites } = useDb();
-  const { ListCompleted } = useDb();
-  const { ListProgress } = useDb();
-  const { ListPlayNext } = useDb();
+  const { listCompleted } = useDb();
+  const { listProgress } = useDb();
+  const { listPlayNext } = useDb();
   const { currentUser } = useAuth();
   const [completedList, setCompletedList] = useState([]);
   const [progressList, setProgressList] = useState([]);
   const [playNextList, setPlayNextList] = useState([]);
   const [fav, setFav] = useState([]);
+  const [activeButton, setActiveButton] = useState("Favourite Games");
 
   useEffect(() => {
     if (currentUser) {
@@ -29,7 +30,7 @@ function MyProfilePage() {
 
   useEffect(() => {
     if (currentUser) {
-      ListCompleted(currentUser.uid).then((res) => {
+      listCompleted(currentUser.uid).then((res) => {
         const completedList = res.docs.map((doc) => doc.data());
         setCompletedList(completedList);
       });
@@ -38,7 +39,7 @@ function MyProfilePage() {
 
   useEffect(() => {
     if (currentUser) {
-      ListProgress(currentUser.uid).then((res) => {
+      listProgress(currentUser.uid).then((res) => {
         const progressList = res.docs.map((doc) => doc.data());
         setProgressList(progressList);
       });
@@ -47,7 +48,7 @@ function MyProfilePage() {
 
   useEffect(() => {
     if (currentUser) {
-      ListPlayNext(currentUser.uid).then((res) => {
+      listPlayNext(currentUser.uid).then((res) => {
         const playNextList = res.docs.map((doc) => doc.data());
         setPlayNextList(playNextList);
       });
@@ -58,25 +59,76 @@ function MyProfilePage() {
     console.log(id);
   }
 
+  function handleButtonClick(buttonName) {
+    setActiveButton(buttonName); // Set the active button
+  }
+
+  // Filter the games based on the active button
+  let gamesToDisplay = [];
+  switch (activeButton) {
+    case "Favourite Games":
+      gamesToDisplay = fav;
+      break;
+    case "Completed":
+      gamesToDisplay = completedList;
+      break;
+    case "In Progress":
+      gamesToDisplay = progressList;
+      break;
+    case "To Play":
+      gamesToDisplay = playNextList;
+      break;
+    default:
+      gamesToDisplay = fav;
+      break;
+  }
+
   return (
     <>
       <h1 className="profile">My Profile</h1>
       <section className="profile">
         <div className="profile__buttons">
-          <button className="profile__button">Favourite Games</button>
-          <button className="profile__button">Completed</button>
-          <button className="profile__button">In Progress</button>
-          <button className="profile__button">To Play</button>
+          <button
+            className={`profile__button ${
+              activeButton === "Favourite Games" && "active"
+            }`}
+            onClick={() => handleButtonClick("Favourite Games")}
+          >
+            Favourite Games
+          </button>
+          <button
+            className={`profile__button ${
+              activeButton === "Completed" && "active"
+            }`}
+            onClick={() => handleButtonClick("Completed")}
+          >
+            Completed
+          </button>
+          <button
+            className={`profile__button ${
+              activeButton === "In Progress" && "active"
+            }`}
+            onClick={() => handleButtonClick("In Progress")}
+          >
+            In Progress
+          </button>
+          <button
+            className={`profile__button ${
+              activeButton === "To Play" && "active"
+            }`}
+            onClick={() => handleButtonClick("To Play")}
+          >
+            To Play
+          </button>
         </div>
       </section>
       <div className="profile__games">
-        {Array.isArray(fav, completedList, progressList, playNextList) &&
-          fav.length > 0 &&
-          fav.map((item) => {
+        {Array.isArray(gamesToDisplay) &&
+          gamesToDisplay.length > 0 &&
+          gamesToDisplay.map((item) => {
             return (
-              <Link to={`/game/${item.id}`}>
+              <Link to={`/game/${item.id}`} key={item.id}>
                 <Card
-                  key={item.id}
                   id={item.id}
                   image={item.background_image}
                   name={item.name}

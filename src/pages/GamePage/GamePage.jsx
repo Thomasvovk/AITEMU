@@ -62,7 +62,7 @@ function GamePage() {
         const item = response.data.results;
         if (item.background_image) {
           const [api, imagePath] = item.background_image.split("media/");
-          item.image = `${api}media/resize/640/-/${imagePath}`;
+          item.background_image = `${api}media/resize/640/-/${imagePath}`;
         }
         setselectedGameAdditions(item);
       });
@@ -108,7 +108,11 @@ function GamePage() {
       });
   }
 
-  if ((selectedGame, selectedGameScreenshots === null)) {
+  if (selectedGameScreenshots === null) {
+    return <span className="loader"></span>;
+  }
+
+  if (selectedGame === null) {
     return <span className="loader"></span>;
   }
 

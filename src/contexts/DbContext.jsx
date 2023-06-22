@@ -30,7 +30,7 @@ export function DbProvider({ children }) {
   }
 
   async function addToPlayNext(gameID, userId, document) {
-    return setDoc(doc(db, "play next", gameID), { ...document, userId });
+    return setDoc(doc(db, "playnext", gameID), { ...document, userId });
   }
 
   async function listFavourites(userId) {
@@ -39,20 +39,20 @@ export function DbProvider({ children }) {
     return getDocs(q);
   }
 
-  async function ListCompleted(userID) {
+  async function listCompleted(userID) {
     const completedRef = collection(db, "completed");
     const queryCompleted = query(completedRef, where("userId", "==", userID));
     return getDocs(queryCompleted);
   }
 
-  async function ListProgress(userID) {
+  async function listProgress(userID) {
     const progressRef = collection(db, "progress");
     const queryProgress = query(progressRef, where("userId", "==", userID));
     return getDocs(queryProgress);
   }
 
-  async function ListPlayNext(userID) {
-    const playNextRef = collection(db, "play next");
+  async function listPlayNext(userID) {
+    const playNextRef = collection(db, "playnext");
     const queryPlayNext = query(playNextRef, where("userId", "==", userID));
     return getDocs(queryPlayNext);
   }
@@ -64,9 +64,9 @@ export function DbProvider({ children }) {
     addToProgress,
     addToPlayNext,
     listFavourites,
-    ListCompleted,
-    ListProgress,
-    ListPlayNext,
+    listCompleted,
+    listProgress,
+    listPlayNext,
   };
 
   return <DbContext.Provider value={value}>{children}</DbContext.Provider>;
