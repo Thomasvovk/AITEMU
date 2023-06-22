@@ -6,6 +6,18 @@ import SearchBar from "../Search/Search";
 import { useAuth } from "../../contexts/AuthContext";
 
 function Header() {
+  const { currentUser, logout } = useAuth();
+
+  async function handleLogout() {
+    try {
+      await logout();
+      alert("Successfully signed out!");
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="header">
       <ul className="header__navigation">
@@ -28,14 +40,22 @@ function Header() {
         </button>
 
         <div className="dropdown-content">
-          <Link to="/my-profile">My Dashboard</Link>
-          <a href="#">My Preferences</a>
-          <a href="#">Sign Out</a>
+          {currentUser ? (
+            <>
+              <Link to="/my-profile">My Dashboard</Link>
+              <a href="#">My Preferences</a>
+              <a href="#" onClick={handleLogout}>
+                Sign Out
+              </a>
+            </>
+          ) : (
+            <Link to="/login">Sign In</Link>
+          )}
         </div>
       </div>
 
       <Link className="header__link" to="/">
-        <img className="header__logo" src={logo} />
+        <img className="header__logo" src={logo} alt="logo" />
       </Link>
     </div>
   );

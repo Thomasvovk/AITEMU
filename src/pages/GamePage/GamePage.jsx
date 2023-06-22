@@ -69,43 +69,59 @@ function GamePage() {
   }, [id]);
 
   function addToFavourites() {
-    dbAddToFavourites(id, currentUser.uid, selectedGame)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (currentUser) {
+      dbAddToFavourites(id, currentUser.uid, selectedGame)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      alert("Please log in to add the game to your Dashboard.");
+    }
   }
 
   function addToCompleted() {
-    dbAddToCompleted(id, currentUser.uid, selectedGame)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (currentUser) {
+      dbAddToCompleted(id, currentUser.uid, selectedGame)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      alert("Please log in to add the game to your Dashboard.");
+    }
   }
 
   function addToProgress() {
-    dbAddToProgress(id, currentUser.uid, selectedGame)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (currentUser) {
+      dbAddToProgress(id, currentUser.uid, selectedGame)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      alert("Please log in to add the game to your Dashboard.");
+    }
   }
 
   function addToPlayNext() {
-    dbAddToPlayNext(id, currentUser.uid, selectedGame)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (currentUser) {
+      dbAddToPlayNext(id, currentUser.uid, selectedGame)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      alert("Please log in to add the game to your Dashboard");
+    }
   }
 
   if (selectedGameScreenshots === null) {

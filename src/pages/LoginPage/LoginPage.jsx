@@ -16,28 +16,28 @@ function LoginPage() {
           </p>
           <form action="" method="get">
             <div className="log-in__auth-container">
-              <label className="log-in__container-title" for="name">
-                Email{" "}
-              </label>
-              <input
-                className="log-in__container-input"
-                type="text"
-                name="name"
-                placeholder="Please enter your email"
-                id="name"
-                required
-              />
-            </div>
-            <div className="log-in__auth-container">
               <label className="log-in__container-title" for="email">
-                Password{" "}
+                Email{" "}
               </label>
               <input
                 className="log-in__container-input"
                 type="email"
                 name="email"
-                placeholder="Please enter your password"
+                placeholder="Please enter your email"
                 id="email"
+                required
+              />
+            </div>
+            <div className="log-in__auth-container">
+              <label className="log-in__container-title" for="password">
+                Password{" "}
+              </label>
+              <input
+                className="log-in__container-input"
+                type="password"
+                name="password"
+                placeholder="Please enter your password"
+                id="password"
                 required
               />
             </div>
