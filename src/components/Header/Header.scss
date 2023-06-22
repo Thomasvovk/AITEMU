@@ -93,9 +93,9 @@ li {
 .dropbtn {
   color: rgb(0, 0, 0);
   background-color: black;
-  opacity: 0.5;
-  padding: 8px;
-  font-size: 16px;
+  opacity: 0.9;
+  padding: 6px;
+  font-size: 13px;
   border: none;
   margin-right: 6rem;
 }
@@ -112,7 +112,7 @@ li {
   position: absolute;
   background-color: #000000;
   opacity: 0.8;
-  min-width: 160px;
+  min-width: 140px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   // margin-top: 1rem;
@@ -121,7 +121,7 @@ li {
 /* Links inside the dropdown */
 .dropdown-content a {
   opacity: 0.8;
-  padding: 12px 16px;
+  padding: 6px 6px;
   text-decoration: none;
   display: block;
   color: white;

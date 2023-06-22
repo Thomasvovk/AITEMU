@@ -16,6 +16,9 @@ import { useAuth } from "../../contexts/AuthContext";
 
 function GamePage() {
   const { addToFavourites: dbAddToFavourites } = useDb();
+  const { addToCompleted: dbAddToCompleted } = useDb();
+  const { addToProgress: dbAddToProgress } = useDb();
+  const { addToPlayNext: dbAddToPlayNext } = useDb();
   const { currentUser } = useAuth();
   const param = useParams();
   const id = param.id;
@@ -75,6 +78,36 @@ function GamePage() {
       });
   }
 
+  function addToCompleted() {
+    dbAddToCompleted(id, currentUser.uid, selectedGame)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  function addToProgress() {
+    dbAddToProgress(id, currentUser.uid, selectedGame)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  function addToPlayNext() {
+    dbAddToPlayNext(id, currentUser.uid, selectedGame)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   if ((selectedGame, selectedGameScreenshots === null)) {
     return <span className="loader"></span>;
   }
@@ -82,6 +115,7 @@ function GamePage() {
   return (
     <>
       <h1 className="selected-game">{selectedGame.name}</h1>
+
       <section className="selected-game__container">
         <div className="selected-game__image-container">
           <img
@@ -107,14 +141,20 @@ function GamePage() {
               />
               <img
                 className="selected-game__icon-completed"
+                onClick={() => addToCompleted(selectedGame)}
                 src={completedIcon}
               />
               <img
                 className="selected-game__icon-progress"
+                onClick={() => addToProgress(selectedGame)}
                 src={inprogressIcon}
                 alt="background game image"
               />
-              <img className="selected-game__icon-toplay" src={toplayIcon} />
+              <img
+                className="selected-game__icon-toplay"
+                onClick={() => addToPlayNext(selectedGame)}
+                src={toplayIcon}
+              />
             </div>
           </div>
         </div>

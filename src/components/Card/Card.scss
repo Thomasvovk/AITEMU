@@ -24,7 +24,7 @@
 
   &__title {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     left: 16px;
     right: 24px;
     background-color: rgb(0, 0, 0);
@@ -36,5 +36,86 @@
     margin-left: 0.5rem;
     text-align: center;
     opacity: 0.7;
+  }
+
+  // &__icons-container {
+  //   @include tablet {
+  //     display: flex;
+  //     justify-content: start;
+  //     align-items: center;
+  //     position: relative;
+  //   }
+  // }
+  // &__icons-box {
+  //   // display: none;
+  //   width: 200px;
+  //   position: absolute;
+  //   bottom: 53px;
+  //   left: 75px;
+  //   background-color: rgb(229, 229, 229);
+  //   border-radius: 4px;
+  //   opacity: 0.7;
+  //   &:hover {
+  //     // display: block;
+  //   }
+  // }
+  // &__icon-favourite {
+  //   @include tablet {
+  //     width: 25px;
+  //     height: 25px;
+  //     margin-right: 1rem;
+  //     margin-left: 1rem;
+  //     margin-top: 7px;
+  //     // bottom: 50px;
+  //     // left: 40px;
+  //     // position: absolute;
+  //   }
+  //   &:hover {
+  //     cursor: pointer;
+  //     border: 2px solid black;
+  //   }
+  // }
+  // &__icon-completed {
+  //   @include tablet {
+  //     width: 25px;
+  //     height: 25px;
+  //     margin-right: 1rem;
+  //     margin-top: 7px;
+  //     // bottom: 50px;
+  //     // left: 80px;
+  //     // position: absolute;
+  //   }
+  //   &:hover {
+  //     cursor: pointer;
+  //     border: 2px solid black;
+  //   }
+  // }
+
+  // &__icon-progress {
+  //   @include tablet {
+  //     width: 25px;
+  //     height: 25px;
+  //     margin-right: 1rem;
+  //     margin-top: 7px;
+  //     // bottom: 50px;
+  //     // left: 120px;
+  //     // position: absolute;
+  //   }
+  //   &:hover {
+  //     cursor: pointer;
+  //     border: 2px solid black;
+  //   }
+  // }
+
+  &__icon-toplay {
+    @include tablet {
+      width: 25px;
+      height: 25px;
+      margin-right: 1rem;
+    }
+    &:hover {
+      cursor: pointer;
+      border: 2px solid black;
+    }
   }
 }

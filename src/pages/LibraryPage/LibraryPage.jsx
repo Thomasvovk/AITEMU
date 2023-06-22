@@ -46,9 +46,9 @@ function LibraryPage() {
 
     axios.get(api).then((response) => {
       const list = response.data.results.map((item) => {
-        if (item.image_background) {
-          const [api, imagePath] = item.image_background.split("media/");
-          item.image_background = `${api}media/resize/640/-/${imagePath}`;
+        if (item.background_image) {
+          const [api, imagePath] = item.background_image.split("media/");
+          item.background_image = `${api}media/resize/640/-/${imagePath}`;
         }
         return item;
       });

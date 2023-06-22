@@ -18,16 +18,15 @@ function Header() {
           <li className="header__container">About Us</li>
         </Link>
       </ul>
-      {/* <SearchBar /> */}
 
       <SearchBar />
 
-      <div class="dropdown">
-        <button class="dropbtn">
+      <div className="dropdown">
+        <button className="dropbtn">
           <img src={profile} alt="profile icon" className="header__profile" />
         </button>
 
-        <div class="dropdown-content">
+        <div className="dropdown-content">
           <Link to="/my-profile">My Dashboard</Link>
           <a href="#">My Preferences</a>
           <a href="#">Sign Out</a>
