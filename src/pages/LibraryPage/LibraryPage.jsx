@@ -13,6 +13,14 @@ import { useEffect, useState } from "react";
 function LibraryPage() {
   // Use States
   const [platforms, setPlatforms] = useState([]);
+  let sortedPlatforms = [];
+  let sortedGenres = [];
+  let sortedPublishers = [];
+
+  const [finalPlatforms, setFinalPlatforms] = useState([]);
+  const [finalGenres, setFinalGenres] = useState([]);
+  const [finalPublishers, setFinalPublishers] = useState([]);
+
   const [publishers, setPublishers] = useState([]);
   const [genres, setGenres] = useState([]);
   const [library, setLibrary] = useState([]);
@@ -29,6 +37,32 @@ function LibraryPage() {
       axios.get(apiPublishersList),
       axios.get(apiGenresList),
     ]).then(([platforms, publishers, genres]) => {
+      const updatesPlatforms = platforms.data.results.map(
+        (plaform) => plaform.name
+      );
+      const updatedGenres = genres.data.results.map((genre) => genre.name);
+      const updatedPublishers = publishers.data.results.map(
+        (publisher) => publisher.name
+      );
+
+      const uniquePlatforms = [...new Set(updatesPlatforms)];
+
+      const uniqueGenres = [...new Set(updatedGenres)];
+      const uniquePublishers = [...new Set(updatedPublishers)];
+      uniquePlatforms.sort();
+      uniqueGenres.sort();
+      uniquePublishers.sort();
+
+      sortedGenres = uniqueGenres;
+      sortedPlatforms = uniquePlatforms;
+      setFinalPlatforms(sortedPlatforms);
+      setFinalGenres(sortedGenres);
+      setFinalPublishers(sortedPlatforms);
+      // console.log(sortedPlatforms);
+      // console.log("platforms:", platforms.data.results);
+      // console.log("publishers: ", publishers.data.results);
+      console.log("genres:", genres.data.results);
+
       setPlatforms(platforms.data.results);
       setPublishers(publishers.data.results);
       setGenres(genres.data.results);
@@ -80,6 +114,10 @@ function LibraryPage() {
   function openGame(id) {
     console.log(id);
   }
+
+  if (finalPlatforms.length === 0) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <>
       <h1 className="library">Library</h1>
@@ -95,14 +133,14 @@ function LibraryPage() {
             <option value="" selected>
               Select Genres
             </option>
-            {genres.map((item) => {
+            {finalGenres.map((item) => {
               return (
                 <option
                   className="library__option"
                   value={item.id}
                   key={item.id}
                 >
-                  {item.name}
+                  {item}
                 </option>
               );
             })}
@@ -118,14 +156,14 @@ function LibraryPage() {
             <option value="" selected>
               Select Platforms
             </option>
-            {platforms.map((item) => {
+            {finalPlatforms.map((item) => {
               return (
                 <option
                   key={item.id}
                   className="library__option"
                   value={item.id}
                 >
-                  {item.name}
+                  {item}
                 </option>
               );
             })}
@@ -141,14 +179,14 @@ function LibraryPage() {
             <option value="" selected>
               Select Publishers
             </option>
-            {publishers.map((item) => {
+            {finalPublishers.map((item) => {
               return (
                 <option
                   className="library__option"
                   value={item.id}
                   key={item.id}
                 >
-                  {item.name}
+                  {item}
                 </option>
               );
             })}

@@ -7,7 +7,7 @@ function Footer() {
       <p className="footer">
         © AITEMU Inc. All Rights Reserved.
         <div className="footer__player">
-          <audio controls autoplay>
+          <audio controls>
             <source src={audio} type="audio/mpeg" />
           </audio>
         </div>
