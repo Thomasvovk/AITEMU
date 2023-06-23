@@ -73,7 +73,6 @@ function LibraryPage() {
         return 0;
       });
       setPlatforms(platformsData);
-
       setPublishers(publishersData);
       setGenres(genresData);
     });
@@ -124,6 +123,19 @@ function LibraryPage() {
   function openGame(id) {
     console.log(id);
   }
+
+  if (platforms === null) {
+    return <span className="loader"></span>;
+  }
+
+  if (publishers === null) {
+    return <span className="loader"></span>;
+  }
+
+  if (genres === null) {
+    return <span className="loader"></span>;
+  }
+
   return (
     <>
       <h1 className="library">Library</h1>
@@ -222,6 +234,7 @@ function LibraryPage() {
                 key={item.id}
                 name={item.name}
                 image={item.background_image}
+                metacritic={item.metacritic}
                 id={item.id}
                 open={openGame}
               />
