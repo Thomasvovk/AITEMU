@@ -2,6 +2,7 @@ import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import { v4 as uuidv4 } from "uuid";
 import {
   apiPlatformsList,
   apiGameList,
@@ -13,16 +14,9 @@ import { useEffect, useState } from "react";
 function LibraryPage() {
   // Use States
   const [platforms, setPlatforms] = useState([]);
-  let sortedPlatforms = [];
-  let sortedGenres = [];
-  let sortedPublishers = [];
-
-  const [finalPlatforms, setFinalPlatforms] = useState([]);
-  const [finalGenres, setFinalGenres] = useState([]);
-  const [finalPublishers, setFinalPublishers] = useState([]);
-
   const [publishers, setPublishers] = useState([]);
   const [genres, setGenres] = useState([]);
+
   const [library, setLibrary] = useState([]);
   const [filter, setFilter] = useState({
     platforms: null,
@@ -37,36 +31,51 @@ function LibraryPage() {
       axios.get(apiPublishersList),
       axios.get(apiGenresList),
     ]).then(([platforms, publishers, genres]) => {
-      const updatesPlatforms = platforms.data.results.map(
-        (plaform) => plaform.name
-      );
-      const updatedGenres = genres.data.results.map((genre) => genre.name);
-      const updatedPublishers = publishers.data.results.map(
-        (publisher) => publisher.name
-      );
+      const platformsData = platforms.data.results;
+      const publishersData = publishers.data.results;
+      const genresData = genres.data.results;
+      platformsData.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
 
-      const uniquePlatforms = [...new Set(updatesPlatforms)];
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
 
-      const uniqueGenres = [...new Set(updatedGenres)];
-      const uniquePublishers = [...new Set(updatedPublishers)];
-      uniquePlatforms.sort();
-      uniqueGenres.sort();
-      uniquePublishers.sort();
+      publishersData.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
 
-      sortedGenres = uniqueGenres;
-      sortedPlatforms = uniquePlatforms;
-      sortedPublishers = uniquePublishers;
-      setFinalPlatforms(sortedPlatforms);
-      setFinalGenres(sortedGenres);
-      setFinalPublishers(sortedPublishers);
-      // console.log(sortedPlatforms);
-      // console.log("platforms:", platforms.data.results);
-      // console.log("publishers: ", publishers.data.results);
-      // console.log("genres:", genres.data.results);
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
 
-      setPlatforms(platforms.data.results);
-      setPublishers(publishers.data.results);
-      setGenres(genres.data.results);
+      genresData.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+      setPlatforms(platformsData);
+
+      setPublishers(publishersData);
+      setGenres(genresData);
     });
   }, []);
 
@@ -115,10 +124,6 @@ function LibraryPage() {
   function openGame(id) {
     console.log(id);
   }
-
-  if (finalPlatforms.length === 0) {
-    return <span className="loader"></span>;
-  }
   return (
     <>
       <h1 className="library">Library</h1>
@@ -134,14 +139,14 @@ function LibraryPage() {
             <option value="" selected>
               Select Genres
             </option>
-            {finalGenres.map((item) => {
+            {genres.map((item) => {
               return (
                 <option
                   className="library__option"
                   value={item.id}
                   key={item.id}
                 >
-                  {item}
+                  {item.name}
                 </option>
               );
             })}
@@ -157,14 +162,14 @@ function LibraryPage() {
             <option value="" selected>
               Select Platforms
             </option>
-            {finalPlatforms.map((item) => {
+            {platforms.map((item) => {
               return (
                 <option
                   key={item.id}
                   className="library__option"
                   value={item.id}
                 >
-                  {item}
+                  {item.name}
                 </option>
               );
             })}
@@ -180,14 +185,14 @@ function LibraryPage() {
             <option value="" selected>
               Select Publishers
             </option>
-            {finalPublishers.map((item) => {
+            {publishers.map((item) => {
               return (
                 <option
                   className="library__option"
                   value={item.id}
                   key={item.id}
                 >
-                  {item}
+                  {item.name}
                 </option>
               );
             })}
