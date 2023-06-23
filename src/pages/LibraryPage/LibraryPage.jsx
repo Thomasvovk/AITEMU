@@ -2,7 +2,6 @@ import "../LibraryPage/LibraryPage.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
-import { v4 as uuidv4 } from "uuid";
 import {
   apiPlatformsList,
   apiGameList,
@@ -95,6 +94,7 @@ function LibraryPage() {
         }
         return item;
       });
+      list.sort((a, b) => b.metacritic - a.metacritic);
       setLibrary(list);
     });
   }, [filter.platforms, filter.publishers, filter.genres]);

@@ -18,6 +18,7 @@ function NewReleasesPage() {
         }
         return item;
       });
+      list.sort((a, b) => b.metacritic - a.metacritic);
       setNewReleases(list);
     });
   }, []);
@@ -49,6 +50,7 @@ function NewReleasesPage() {
               <Card
                 name={item.name}
                 image={item.background_image}
+                metacritic={item.metacritic}
                 id={item.id}
               />
             </Link>

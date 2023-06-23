@@ -19,6 +19,7 @@ function TopMetacritic() {
         item.background_image = `${api}media/resize/640/-/${imagePath}`;
         return item;
       });
+      list.sort((a, b) => b.metacritic - a.metacritic);
       setAllGames(list);
       console.log(list);
     });
@@ -50,6 +51,7 @@ function TopMetacritic() {
               <Card
                 name={item.name}
                 image={item.background_image}
+                metacritic={item.metacritic}
                 id={item.id}
               />
             </Link>
