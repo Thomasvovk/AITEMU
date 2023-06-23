@@ -8,6 +8,7 @@ export const apiGenres = "https://api.rawg.io/api/genres";
 //Query
 export const queryMetacritic = "metacritic=90,100";
 export const pageSize = "page_size=200";
+export const page = "page=5";
 export const recentGamesReleases = "dates=2023-05-01,2023-05-31";
 export const search = "search=''";
 export const searchResultsSize = "page_size=4";

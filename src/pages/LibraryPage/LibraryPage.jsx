@@ -55,13 +55,14 @@ function LibraryPage() {
 
       sortedGenres = uniqueGenres;
       sortedPlatforms = uniquePlatforms;
+      sortedPublishers = uniquePublishers;
       setFinalPlatforms(sortedPlatforms);
       setFinalGenres(sortedGenres);
-      setFinalPublishers(sortedPlatforms);
+      setFinalPublishers(sortedPublishers);
       // console.log(sortedPlatforms);
       // console.log("platforms:", platforms.data.results);
       // console.log("publishers: ", publishers.data.results);
-      console.log("genres:", genres.data.results);
+      // console.log("genres:", genres.data.results);
 
       setPlatforms(platforms.data.results);
       setPublishers(publishers.data.results);
@@ -116,7 +117,7 @@ function LibraryPage() {
   }
 
   if (finalPlatforms.length === 0) {
-    return <h1>Loading...</h1>;
+    return <span className="loader"></span>;
   }
   return (
     <>
