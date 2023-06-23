@@ -42,6 +42,14 @@
     margin-bottom: 0.5rem;
   }
 
+  &__subheader {
+    margin-left: 2.4rem;
+    margin-bottom: 1rem;
+    font-size: 1.6875rem;
+    line-height: 2.75rem;
+    font-family: "Poppins Bold";
+  }
+
   &__games {
     width: 100%;
     display: flex;

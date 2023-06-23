@@ -42,7 +42,7 @@ function NewReleasesPage() {
 
         <div className="new-release__character-right"></div>
       </div>
-
+      <h2 className="new-release__subheader">Top Metacritic</h2>
       <div className="new-release__games">
         {newReleases.map((item) => {
           return (

@@ -132,6 +132,10 @@ function GamePage() {
     return <span className="loader"></span>;
   }
 
+  if (selectedGameAdditions === null) {
+    return <span className="loader"></span>;
+  }
+
   return (
     <>
       <h1 className="selected-game">{selectedGame.name}</h1>

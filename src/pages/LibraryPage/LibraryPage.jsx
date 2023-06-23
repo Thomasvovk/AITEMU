@@ -225,7 +225,7 @@ function LibraryPage() {
       </div>
 
       {/* Returning Card */}
-
+      <h2 className="library__subheader">Top Metacritic</h2>
       <div className="library__games">
         {library.map((item) => {
           return (
