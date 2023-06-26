@@ -35,7 +35,7 @@
 </ul><ul>
 <li>About us</li>
 
-</ul><h2>Instalation</h2><ul>
+</ul><h2>Installation</h2><ul>
 <li>Download or clone the repository</li>
 </ul><ul>
 <li>Run npm install</li>
